@@ -1,7 +1,14 @@
 "use client";
 
-import { Chrono } from "react-chrono";
+import dynamic from "next/dynamic";
 import styles from "./education.module.css";
+
+const DynamicChrono = dynamic(
+  () => import("react-chrono").then((mod) => mod.Chrono),
+  {
+    ssr: false,
+  }
+);
 
 const educationData = [
   {
@@ -12,10 +19,11 @@ const educationData = [
       "An intensive project-based curriculum focused on software engineering, algorithms, and system programming. Part of the prestigious 42 Network known for its peer-to-peer learning methodology.",
   },
   {
-    "title": "2018 - 2021",
-    "cardTitle": "Economics and Management",
-    "cardSubtitle": "Faculty of Economics and Management - University Hassan I",
-    "cardDetailedText": "Studied economics and management with focus on data analysis and business systems, developing analytical skills that complement software engineering."
+    title: "2018 - 2021",
+    cardTitle: "Economics and Management",
+    cardSubtitle: "Faculty of Economics and Management - University Hassan I",
+    cardDetailedText:
+      "Studied economics and management with focus on data analysis and business systems, developing analytical skills that complement software engineering.",
   },
   {
     title: "2018",
@@ -29,8 +37,10 @@ const educationData = [
 const Education = () => {
   return (
     <div id="education" style={{ padding: "3.5rem" }}>
-      <div className="w-full max-w-[1200px] mx-auto [&_.timeline-controls]:!hidden [&_.timeline-main-wrapper]:!px-0">
-        <Chrono
+      <div
+        className={`w-full max-w-[1200px] mx-auto [&_.timeline-controls]:!hidden [&_.timeline-main-wrapper]:!px-0 ${styles.timelineWrapper}`}
+      >
+        <DynamicChrono
           items={educationData}
           mode="VERTICAL_ALTERNATING"
           disableToolbar

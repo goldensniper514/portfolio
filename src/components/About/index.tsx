@@ -18,14 +18,20 @@ const About = () => {
         {/* Text section */}
         <div className="flex flex-col gap-5">
           <p className="text-xl text-[#ababab] text-justify">
-          Fullstack developer with 4 years of coding experience through freelancing, personal projects, and continuous learning. Nearly 1 year of professional experience at a fintech company. Skilled in Next.js/React, TypeScript, Node.js, NestJS, and AWS. Passionate about creating efficient, user-friendly applications. Proficient in C/C++ and JavaScript. Currently enhancing computer engineering skills to drive innovation in tech.
+            Fullstack developer with 4 years of coding experience through
+            freelancing, personal projects, and continuous learning. Nearly 1
+            year of professional experience at a fintech company. Skilled in
+            Next.js/React, TypeScript, Node.js, NestJS, and AWS. Passionate
+            about creating efficient, user-friendly applications. Proficient in
+            C/C++ and JavaScript. Currently enhancing computer engineering
+            skills to drive innovation in tech.
           </p>
           <p className="text-xl text-[#ababab] text-justify">
-            Currently, I'm focused on expanding my expertise in cloud
+            Currently, I&apos;m focused on expanding my expertise in cloud
             technologies and microservices architecture while staying up-to-date
-            with the latest industry trends. I'm always eager to take on new
-            challenges and contribute to meaningful projects that push the
-            boundaries of what's possible in tech.
+            with the latest industry trends. I&apos;m always eager to take on
+            new challenges and contribute to meaningful projects that push the
+            boundaries of what&apos;s possible in tech.
           </p>
         </div>
 
