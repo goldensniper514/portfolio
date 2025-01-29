@@ -12,6 +12,19 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        gradient: 'textShine 5s ease-in-out infinite alternate',
+      },
+      keyframes: {
+        textShine: {
+          '0%': {
+            backgroundPosition: '0% 50%',
+          },
+          '100%': {
+            backgroundPosition: '100% 50%',
+          },
+        },
+      },
     },
   },
   plugins: [],
