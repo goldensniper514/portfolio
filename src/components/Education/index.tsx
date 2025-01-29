@@ -37,6 +37,12 @@ const educationData = [
 const Education = () => {
   return (
     <div id="education" style={{ padding: "3.5rem" }}>
+      <div className="flex items-center gap-12 mb-8">
+        <h1 className="text-5xl font-black whitespace-nowrap">
+          &lt;Education/&gt;
+        </h1>
+        <span className="h-[2px] w-full bg-[#2e2e2e]" />
+      </div>
       <div
         className={`w-full max-w-[1200px] mx-auto [&_.timeline-controls]:!hidden [&_.timeline-main-wrapper]:!px-0 ${styles.timelineWrapper}`}
       >
