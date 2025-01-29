@@ -67,6 +67,7 @@ const Projects = () => {
       image: "portfolio.jpeg",
       desc: "A personal portfolio website built with Next.js and TailwindCSS to showcase my projects, qualifications, and skills. Features a modern design with smooth animations and responsive layout.",
       repo: "https://github.com/osallak/portfolio",
+      link: "https://portfolio-zbbj.vercel.app/",
     },
     {
       title: "Spotify Profile Stats & Dashboard",
