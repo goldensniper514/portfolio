@@ -1,6 +1,7 @@
 "use client";
 
 import { useTypewriter, Cursor } from "react-simple-typewriter";
+import { FaDownload } from "react-icons/fa6";
 
 const Banner = () => {
   const occupation = "Software Engineer & Full Stack Developer";
@@ -43,6 +44,18 @@ const Banner = () => {
 
         {/* Occupation */}
         <h3 className="text-3xl font-thin mt-4">{occupation}</h3>
+
+        {/* Resume Download Button */}
+        <a
+          href="/resume.pdf"
+          download
+          className="mt-8 px-6 py-3 bg-gradient-to-r from-[#8c1df3] to-[#621aaf] rounded-full
+          text-white font-semibold flex items-center gap-2 hover:scale-105 transition-transform
+          shadow-lg hover:shadow-purple-500/20"
+        >
+          <FaDownload className="w-5 h-5" />
+          Download Resume
+        </a>
       </div>
     </div>
   );

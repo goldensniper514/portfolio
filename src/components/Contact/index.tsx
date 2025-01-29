@@ -170,9 +170,25 @@ function Contact() {
         </div>
         <button
           type="submit"
-          className="relative mt-4 px-6 py-3 text-lg text-[#c041ff] border-2 border-[#c552ff] rounded-full bg-transparent font-semibold transition-all duration-300 overflow-hidden hover:text-[#212121] hover:scale-110 hover:shadow-[0_0_20px_rgba(193,163,98,0.4)] active:scale-100 before:content-[''] before:absolute before:inset-0 before:m-auto before:w-[50px] before:h-[50px] before:rounded-full before:scale-0 before:-z-10 before:bg-[#c34aff] before:transition-all before:duration-500 hover:before:scale-[3]"
+          className="mt-8 px-6 py-3 bg-gradient-to-r from-[#8c1df3] to-[#621aaf] rounded-full
+          text-white font-semibold flex items-center gap-2 hover:scale-105 transition-transform
+          shadow-lg hover:shadow-purple-500/20"
         >
-          Send
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+            />
+          </svg>
+          Send Message
         </button>
       </form>
     </div>
