@@ -6,7 +6,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const Banner = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false });
   const occupation = "Software Engineer & Full Stack Developer";
 
@@ -58,6 +58,84 @@ const Banner = () => {
       id="home"
       ref={ref}
     >
+      {/* Vue-inspired animated background */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <div className="relative w-[800px] h-[800px]">
+          {/* Large rotating hexagon */}
+          <motion.div
+            className="absolute inset-0 border-[3px] border-purple-500/30"
+            style={{
+              clipPath:
+                "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+            }}
+            animate={{
+              rotate: 360,
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              rotate: {
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+              },
+              scale: {
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
+          />
+          {/* Medium rotating hexagon */}
+          <motion.div
+            className="absolute inset-[15%] border-[3px] border-pink-500/40"
+            style={{
+              clipPath:
+                "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+            }}
+            animate={{
+              rotate: -360,
+              scale: [1.1, 1, 1.1],
+            }}
+            transition={{
+              rotate: {
+                duration: 15,
+                repeat: Infinity,
+                ease: "linear",
+              },
+              scale: {
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
+          />
+          {/* Small rotating hexagon */}
+          <motion.div
+            className="absolute inset-[30%] border-[3px] border-purple-500/50"
+            style={{
+              clipPath:
+                "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+            }}
+            animate={{
+              rotate: 360,
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              rotate: {
+                duration: 10,
+                repeat: Infinity,
+                ease: "linear",
+              },
+              scale: {
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              },
+            }}
+          />
+        </div>
+      </div>
+
       {/* Dot pattern background */}
       <div className="absolute inset-0 z-0">
         <div className="h-full w-full bg-[radial-gradient(circle,_#585858_1px,_transparent_1px),radial-gradient(circle,_#585858_1.2px,_transparent_1.2px)] bg-[length:40px_40px]" />
