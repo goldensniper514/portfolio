@@ -40,6 +40,10 @@ const Header = () => {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
+            onClick={() => {
+              // scroll to home
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="text-2xl font-bold bg-gradient-to-r from-[#8c1df3] to-[#621aaf] text-transparent bg-clip-text"
           >
             OS
