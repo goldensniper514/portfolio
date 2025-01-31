@@ -158,15 +158,15 @@ function Contact() {
             <div className="relative w-full">
               <input
                 type="text"
-                className="peer w-full border-b-2 border-[#2e2e2e] bg-transparent outline-none text-base sm:text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#b520fe]"
-                placeholder=" "
+                className="peer w-full border-b-2 border-[#2e2e2e] bg-transparent outline-none text-base sm:text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#b520fe] mt-7"
+                placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 onBlur={() => handleBlur("name")}
               />
               <label
                 htmlFor="name"
-                className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#b520fe]"
+                className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-8 peer-focus:-top-1 peer-focus:text-[#b520fe]"
               >
                 Name
               </label>
@@ -179,15 +179,15 @@ function Contact() {
             <div className="relative w-full">
               <input
                 type="email"
-                className="peer w-full border-b-2 border-[#2e2e2e] bg-transparent outline-none text-base sm:text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#b520fe]"
-                placeholder=" "
+                className="peer w-full border-b-2 border-[#2e2e2e] bg-transparent outline-none text-base sm:text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#b520fe] mt-7"
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onBlur={() => handleBlur("email")}
               />
               <label
                 htmlFor="email"
-                className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#b520fe]"
+                className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-8 peer-focus:-top-1 peer-focus:text-[#b520fe]"
               >
                 Email
               </label>
@@ -199,15 +199,19 @@ function Contact() {
             </div>
             <div className="relative w-full">
               <textarea
-                className="peer w-full min-h-[100px] border-b-2 border-[#2e2e2e] bg-transparent outline-none text-base sm:text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#b520fe] resize-none"
-                placeholder=" "
+                className="peer w-full h-10 border-b-2 border-[#2e2e2e] bg-transparent outline-none text-base sm:text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#b520fe] resize-none mt-7 overflow-hidden"
+                placeholder="Message"
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={(e) => {
+                  e.target.style.height = "auto";
+                  e.target.style.height = e.target.scrollHeight + "px";
+                  setMessage(e.target.value);
+                }}
                 onBlur={() => handleBlur("message")}
               />
               <label
                 htmlFor="message"
-                className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#b520fe]"
+                className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-8 peer-focus:-top-1 peer-focus:text-[#b520fe]"
               >
                 Message
               </label>
