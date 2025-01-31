@@ -12,7 +12,10 @@
     "@emailjs/browser": "^4.4.1",
     "@iconify-icon/react": "^2.3.0",
     "@iconify/react": "^5.2.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.0.6",
+    "lucide-react": "^0.474.0",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-chrono": "^2.6.1",
@@ -20,7 +23,9 @@
     "react-icons": "^5.4.0",
     "react-scroll": "^1.9.0",
     "react-simple-typewriter": "^5.0.1",
-    "sonner": "^1.7.3"
+    "sonner": "^1.7.3",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

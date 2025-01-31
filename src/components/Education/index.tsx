@@ -1,14 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import styles from "./education.module.css";
-
-const DynamicChrono = dynamic(
-  () => import("react-chrono").then((mod) => mod.Chrono),
-  {
-    ssr: false,
-  }
-);
+import { Timeline } from "@/components/ui/timeline";
 
 const educationData = [
   {
@@ -43,27 +35,22 @@ const Education = () => {
         </h1>
         <span className="h-[2px] w-full bg-[#2e2e2e]" />
       </div>
-      <div
-        className={`w-full max-w-[1200px] mx-auto [&_.timeline-controls]:!hidden [&_.timeline-main-wrapper]:!px-0 ${styles.timelineWrapper}`}
-      >
-        <DynamicChrono
-          items={educationData}
-          mode="VERTICAL_ALTERNATING"
-          disableToolbar
-          cardHeight={250}
-          theme={{
-            primary: "#b520fe",
-            secondary: "transparent",
-            titleColor: "white",
-            titleColorActive: "#b520fe",
-            cardBgColor: "#2e2e2e50",
-            cardForeColor: "white",
-          }}
-          classNames={{
-            card: styles["teste-card"],
-            title: styles["my-title"],
-            cardText: styles["card-text"],
-          }}
+      <div className="w-full max-w-[1200px] mx-auto">
+        <Timeline
+          data={educationData.map((item) => ({
+            title: item.title,
+            content: (
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {item.cardTitle}
+                </h3>
+                <p className="text-gray-300 font-medium mb-2">
+                  {item.cardSubtitle}
+                </p>
+                <p className="text-gray-400">{item.cardDetailedText}</p>
+              </div>
+            ),
+          }))}
         />
       </div>
     </div>
