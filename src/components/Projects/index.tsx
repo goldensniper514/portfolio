@@ -1,5 +1,9 @@
+"use client";
+
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -10,57 +14,81 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
+  // Determine the target URL based on link and repo availability
+  const targetUrl = link || repo;
+
   return (
-    <div className="bg-[#2e2e2e50] w-[500px] min-h-[550px] rounded-2xl overflow-hidden p-8 border border-[#2e2e2e] transition-all duration-100 hover:border-[#343434]">
-      <div className="flex justify-center">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -5 }}
+      whileTap={{ scale: 0.98 }}
+      onClick={() => targetUrl && window.open(targetUrl, "_blank")}
+      className="bg-[#2e2e2e50] w-[500px] min-h-[550px] rounded-2xl overflow-hidden p-8 border border-[#2e2e2e]
+        transition-all duration-100 hover:border-[#343434] cursor-pointer group"
+    >
+      <motion.div
+        className="flex justify-center"
+        whileHover={{ scale: 1.02 }}
+        transition={{ duration: 0.2 }}
+      >
         <div className="w-full h-[250px] mb-4 rounded-2xl overflow-hidden relative">
           <Image
             src={`/assets/${image}`}
             alt={title}
             fill
-            className="object-cover transition-all duration-100"
+            className="object-cover transition-all duration-300 group-hover:scale-105"
           />
         </div>
-      </div>
+      </motion.div>
       <div>
         <div className="flex flex-row items-center justify-between">
           <p className="text-2xl font-bold break-words">{title}</p>
           <div className="flex flex-row">
             {repo && (
-              <a
+              <motion.a
+                whileHover={{ scale: 1.1 }}
                 href={repo}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-200 hover:opacity-50"
+                onClick={(e) => e.stopPropagation()} // Prevent card click when clicking the icon
               >
                 <Icon icon="bxl:github" className="text-2xl" />
-              </a>
+              </motion.a>
             )}
             {link && (
               <>
                 {repo && <div className="mx-4 w-[1px] h-auto bg-[#2e2e2e]" />}
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.1 }}
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-all duration-200 hover:opacity-50"
+                  onClick={(e) => e.stopPropagation()} // Prevent card click when clicking the icon
                 >
                   <Icon
                     icon="material-symbols:link-rounded"
                     className="text-2xl"
                   />
-                </a>
+                </motion.a>
               </>
             )}
           </div>
         </div>
         <p className="mt-4 text-lg">{desc}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const Projects = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false });
+
   const projects = [
     {
       title: "Portfolio Website",
@@ -92,13 +120,23 @@ const Projects = () => {
   ];
 
   return (
-    <div id="projects" className="pt-4">
-      <div className="flex items-center gap-12 mb-8">
+    <div id="projects" className="pt-4" ref={ref}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.5 }}
+        className="flex items-center gap-12 mb-8"
+      >
         <h1 className="text-5xl font-black whitespace-nowrap">
           &lt;Projects/&gt;
         </h1>
-        <span className="h-[2px] w-full bg-[#2e2e2e]" />
-      </div>
+        <motion.span
+          initial={{ scaleX: 0 }}
+          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="h-[2px] w-full bg-[#2e2e2e] origin-left"
+        />
+      </motion.div>
 
       <div className="flex flex-wrap gap-4 justify-center">
         {projects.map((project, index) => (
@@ -106,8 +144,15 @@ const Projects = () => {
         ))}
       </div>
 
-      <div className="flex justify-center mt-12">
-        <a
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.5 }}
+        className="flex justify-center mt-12"
+      >
+        <motion.a
+          whileHover={{ scale: 1.05 }}
           href="https://github.com/osallak"
           target="_blank"
           rel="noopener noreferrer"
@@ -118,8 +163,8 @@ const Projects = () => {
             icon="bxl:github"
             className="text-2xl transition-all duration-200 group-hover:translate-x-1"
           />
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
     </div>
   );
 };
