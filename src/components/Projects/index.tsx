@@ -26,7 +26,7 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
       whileHover={{ y: -5 }}
       whileTap={{ scale: 0.98 }}
       onClick={() => targetUrl && window.open(targetUrl, "_blank")}
-      className="bg-[#2e2e2e50] w-[500px] min-h-[550px] rounded-2xl overflow-hidden p-8 border border-[#2e2e2e]
+      className="bg-[#2e2e2e50] w-full sm:w-[400px] lg:w-[500px] min-h-[450px] sm:min-h-[550px] rounded-2xl overflow-hidden p-4 sm:p-8 border border-[#2e2e2e]
         transition-all duration-100 hover:border-[#343434] cursor-pointer group"
     >
       <motion.div
@@ -34,7 +34,7 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.2 }}
       >
-        <div className="w-full h-[250px] mb-4 rounded-2xl overflow-hidden relative">
+        <div className="w-full h-[200px] sm:h-[250px] mb-4 rounded-2xl overflow-hidden relative">
           <Image
             src={`/assets/${image}`}
             alt={title}
@@ -45,8 +45,8 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
       </motion.div>
       <div>
         <div className="flex flex-row items-center justify-between">
-          <p className="text-2xl font-bold break-words">{title}</p>
-          <div className="flex flex-row">
+          <p className="text-xl sm:text-2xl font-bold break-words">{title}</p>
+          <div className="flex flex-row gap-2 sm:gap-0">
             {repo && (
               <motion.a
                 whileHover={{ scale: 1.1 }}
@@ -79,7 +79,7 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
             )}
           </div>
         </div>
-        <p className="mt-4 text-lg">{desc}</p>
+        <p className="mt-4 text-base sm:text-lg">{desc}</p>
       </div>
     </motion.div>
   );
@@ -125,9 +125,9 @@ const Projects = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
-        className="flex items-center gap-12 mb-8"
+        className="flex items-center gap-4 sm:gap-12 mb-8"
       >
-        <h1 className="text-5xl font-black whitespace-nowrap">
+        <h1 className="text-3xl sm:text-5xl font-black whitespace-nowrap">
           &lt;Projects/&gt;
         </h1>
         <motion.span
@@ -138,7 +138,7 @@ const Projects = () => {
         />
       </motion.div>
 
-      <div className="flex flex-wrap gap-4 justify-center">
+      <div className="flex flex-wrap gap-6 justify-center px-4 sm:px-0">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
@@ -156,9 +156,11 @@ const Projects = () => {
           href="https://github.com/osallak"
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-2 bg-[#2e2e2e50] px-8 py-4 rounded-xl border border-[#2e2e2e] transition-all duration-200 hover:border-[#343434]"
+          className="group flex items-center gap-2 bg-[#2e2e2e50] px-6 sm:px-8 py-3 sm:py-4 rounded-xl border border-[#2e2e2e] transition-all duration-200 hover:border-[#343434]"
         >
-          <span className="text-xl font-semibold">See More Projects</span>
+          <span className="text-lg sm:text-xl font-semibold">
+            See More Projects
+          </span>
           <Icon
             icon="bxl:github"
             className="text-2xl transition-all duration-200 group-hover:translate-x-1"

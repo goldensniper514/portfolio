@@ -104,18 +104,18 @@ function Contact() {
   };
 
   return (
-    <div className="flex flex-col h-auto w-full justify-start items-center p-8">
-      <h1 className="text-4xl font-black whitespace-nowrap">
+    <div className="flex flex-col h-auto w-full justify-start items-center p-4 sm:p-8">
+      <h1 className="text-3xl sm:text-4xl font-black whitespace-nowrap">
         &lt;Contact/&gt;
       </h1>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 relative w-[500px] items-center mt-8"
+        className="flex flex-col gap-4 relative w-full max-w-[500px] px-4 sm:px-0 items-center mt-6 sm:mt-8"
       >
         <div className="relative w-full pt-5">
           <input
             type="text"
-            className="peer w-full border-b-2 border-[#9b9b9b] bg-transparent outline-none text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#ac38ef] focus:border-b-3 focus:font-bold"
+            className="peer w-full border-b-2 border-[#9b9b9b] bg-transparent outline-none text-base sm:text-lg text-white py-1.5 sm:py-2 px-0 transition-all placeholder-transparent focus:border-[#ac38ef] focus:border-b-3 focus:font-bold"
             placeholder=" "
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -123,18 +123,20 @@ function Contact() {
           />
           <label
             htmlFor="name"
-            className="absolute left-0 -top-1 text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#ac38ef] peer-focus:font-bold"
+            className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#ac38ef] peer-focus:font-bold"
           >
             Name
           </label>
           {touched.name && errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">
+              {errors.name}
+            </p>
           )}
         </div>
         <div className="relative w-full pt-5">
           <input
             type="email"
-            className="peer w-full border-b-2 border-[#9b9b9b] bg-transparent outline-none text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#ac38ef] focus:border-b-3 focus:font-bold"
+            className="peer w-full border-b-2 border-[#9b9b9b] bg-transparent outline-none text-base sm:text-lg text-white py-1.5 sm:py-2 px-0 transition-all placeholder-transparent focus:border-[#ac38ef] focus:border-b-3 focus:font-bold"
             placeholder=" "
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -142,17 +144,19 @@ function Contact() {
           />
           <label
             htmlFor="email"
-            className="absolute left-0 -top-1 text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#ac38ef] peer-focus:font-bold"
+            className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#ac38ef] peer-focus:font-bold"
           >
             Email
           </label>
           {touched.email && errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">
+              {errors.email}
+            </p>
           )}
         </div>
         <div className="relative w-full pt-5">
           <textarea
-            className="peer w-full h-12 border-b-2 border-[#9b9b9b] bg-transparent outline-none text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#ac38ef] focus:border-b-3 focus:font-bold resize-none"
+            className="peer w-full h-12 border-b-2 border-[#9b9b9b] bg-transparent outline-none text-base sm:text-lg text-white py-1.5 sm:py-2 px-0 transition-all placeholder-transparent focus:border-[#ac38ef] focus:border-b-3 focus:font-bold resize-none"
             placeholder=" "
             value={message}
             onChange={(e) => setMessage(e.target.value)}
@@ -160,19 +164,21 @@ function Contact() {
           />
           <label
             htmlFor="message"
-            className="absolute left-0 -top-1 text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#ac38ef] peer-focus:font-bold"
+            className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#ac38ef] peer-focus:font-bold"
           >
             Message
           </label>
           {touched.message && errors.message && (
-            <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+            <p className="text-red-500 text-xs sm:text-sm mt-1">
+              {errors.message}
+            </p>
           )}
         </div>
         <button
           type="submit"
-          className="mt-8 px-6 py-3 bg-gradient-to-r from-[#8c1df3] to-[#621aaf] rounded-full
+          className="mt-6 sm:mt-8 px-6 py-3 bg-gradient-to-r from-[#8c1df3] to-[#621aaf] rounded-full
           text-white font-semibold flex items-center gap-2 hover:scale-105 transition-transform
-          shadow-lg hover:shadow-purple-500/20"
+          shadow-lg hover:shadow-purple-500/20 whitespace-nowrap"
         >
           <svg
             className="w-5 h-5"
