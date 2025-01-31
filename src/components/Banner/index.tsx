@@ -60,10 +60,10 @@ const Banner = () => {
     >
       {/* Vue-inspired animated background */}
       <div className="absolute inset-0 z-0 flex items-center justify-center">
-        <div className="relative w-[800px] h-[800px]">
+        <div className="relative w-[min(800px,95vw)] h-[min(800px,95vw)] md:w-[800px] md:h-[800px]">
           {/* Large rotating hexagon */}
           <motion.div
-            className="absolute inset-0 border-[3px] border-purple-500/30"
+            className="absolute inset-0 border-[2px] md:border-[3px] border-purple-500/30"
             style={{
               clipPath:
                 "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
@@ -146,43 +146,59 @@ const Banner = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="relative z-10 h-full w-full bg-black/30 flex flex-col justify-center items-center"
+        className="relative z-10 h-full w-full bg-black/30 flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 text-center"
       >
-        <motion.h1 variants={itemVariants} className="text-7xl font-bold">
-          Hi, I&apos;m <span>Oussama!</span>
-        </motion.h1>
-
-        {/* Typewriter effect */}
-        <motion.h3 variants={itemVariants} className="text-5xl font-bold mt-4">
-          Passionate about{" "}
-          <span className="bg-gradient-to-r from-[#8c1df3] via-[#f714d1] to-[#621aaf] text-transparent bg-clip-text bg-[length:500%] animate-gradient">
-            {typewriterText}
-          </span>
-          <Cursor cursorStyle="|" />
-        </motion.h3>
-
-        {/* Occupation */}
-        <motion.h3 variants={itemVariants} className="text-3xl font-thin mt-4">
-          {occupation}
-        </motion.h3>
-
-        {/* Resume Download Button */}
-        <motion.div
-          variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <a
-            href="/resume.pdf"
-            download
-            className="mt-8 px-6 py-3 bg-gradient-to-r from-[#8c1df3] to-[#621aaf] rounded-full
-            text-white font-semibold flex items-center gap-2 transition-transform
-            shadow-lg hover:shadow-purple-500/20"
+        <div className="max-w-4xl mx-auto">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
           >
-            <FaDownload className="w-5 h-5" />
-            Download Resume
-          </a>
-        </motion.div>
+            Hi, I&apos;m{" "}
+            <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+              Oussama!
+            </span>
+          </motion.h1>
+
+          {/* Typewriter effect */}
+          <motion.h3
+            variants={itemVariants}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mt-2 md:mt-4 leading-tight flex flex-col sm:flex-row items-center justify-center gap-2"
+          >
+            <div className="flex items-center whitespace-nowrap">
+              Passionate about&nbsp;
+              <span className="bg-gradient-to-r from-[#8c1df3] via-[#f714d1] to-[#621aaf] text-transparent bg-clip-text bg-[length:500%] animate-gradient min-w-[2ch] inline-flex">
+                {typewriterText}
+              </span>
+              <Cursor cursorStyle="|" />
+            </div>
+          </motion.h3>
+
+          {/* Occupation */}
+          <motion.h3
+            variants={itemVariants}
+            className="text-xl sm:text-2xl md:text-3xl font-thin mt-2 md:mt-4 max-w-[90%] mx-auto leading-relaxed whitespace-nowrap"
+          >
+            {occupation}
+          </motion.h3>
+
+          {/* Resume Download Button */}
+          <motion.div
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <a
+              href="/resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 mt-8 bg-gradient-to-r from-[#8c1df3] to-[#621aaf] rounded-full
+              text-white text-sm md:text-base font-semibold transition-all duration-300
+              shadow-lg hover:shadow-purple-500/20"
+            >
+              <FaDownload className="w-4 h-4 md:w-5 md:h-5" />
+              Download Resume
+            </a>
+          </motion.div>
+        </div>
       </motion.div>
     </div>
   );
