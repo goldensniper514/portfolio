@@ -27,6 +27,27 @@ const educationData = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 const Education = () => {
   return (
     <div id="education" className="relative w-full overflow-hidden py-14">
@@ -115,12 +136,18 @@ const Education = () => {
 
       {/* Content container with dark overlay */}
       <div className="relative z-10 w-full bg-black/30 px-14">
-        <div className="flex items-center gap-12 mb-8">
-          <h1 className="text-5xl font-black whitespace-nowrap">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="flex items-center gap-12 mb-8"
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black whitespace-nowrap bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
             &lt;Education/&gt;
-          </h1>
-          <span className="h-[2px] w-full bg-[#2e2e2e]" />
-        </div>
+          </h2>
+          <span className="h-[2px] w-full bg-gradient-to-r from-[#2e2e2e] via-purple-500/20 to-[#2e2e2e]" />
+        </motion.div>
         <div className="w-full max-w-[1200px] mx-auto">
           <Timeline
             data={educationData.map((item) => ({

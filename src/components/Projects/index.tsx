@@ -127,14 +127,14 @@ const Projects = () => {
         transition={{ duration: 0.5 }}
         className="flex items-center gap-4 sm:gap-12 mb-8"
       >
-        <h1 className="text-3xl sm:text-5xl font-black whitespace-nowrap">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black whitespace-nowrap bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
           &lt;Projects/&gt;
-        </h1>
+        </h2>
         <motion.span
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="h-[2px] w-full bg-[#2e2e2e] origin-left"
+          className="h-[2px] w-full bg-gradient-to-r from-[#2e2e2e] via-purple-500/20 to-[#2e2e2e] origin-left"
         />
       </motion.div>
 

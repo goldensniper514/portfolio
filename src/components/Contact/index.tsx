@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 function Contact() {
   const [name, setName] = useState("");
@@ -18,6 +19,27 @@ function Contact() {
     email: "",
     message: "",
   });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
 
   const isValidEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -104,100 +126,124 @@ function Contact() {
   };
 
   return (
-    <div className="flex flex-col h-auto w-full justify-start items-center p-4 sm:p-8">
-      <h1 className="text-3xl sm:text-4xl font-black whitespace-nowrap">
-        &lt;Contact/&gt;
-      </h1>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-4 relative w-full max-w-[500px] px-4 sm:px-0 items-center mt-6 sm:mt-8"
+    <section
+      id="contact"
+      className="container mx-auto px-0 sm:px-6 lg:px-8 py-4 sm:py-16 lg:py-20"
+    >
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="space-y-4 sm:space-y-12"
       >
-        <div className="relative w-full pt-5">
-          <input
-            type="text"
-            className="peer w-full border-b-2 border-[#9b9b9b] bg-transparent outline-none text-base sm:text-lg text-white py-1.5 sm:py-2 px-0 transition-all placeholder-transparent focus:border-[#ac38ef] focus:border-b-3 focus:font-bold"
-            placeholder=" "
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            onBlur={() => handleBlur("name")}
-          />
-          <label
-            htmlFor="name"
-            className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#ac38ef] peer-focus:font-bold"
-          >
-            Name
-          </label>
-          {touched.name && errors.name && (
-            <p className="text-red-500 text-xs sm:text-sm mt-1">
-              {errors.name}
-            </p>
-          )}
-        </div>
-        <div className="relative w-full pt-5">
-          <input
-            type="email"
-            className="peer w-full border-b-2 border-[#9b9b9b] bg-transparent outline-none text-base sm:text-lg text-white py-1.5 sm:py-2 px-0 transition-all placeholder-transparent focus:border-[#ac38ef] focus:border-b-3 focus:font-bold"
-            placeholder=" "
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={() => handleBlur("email")}
-          />
-          <label
-            htmlFor="email"
-            className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#ac38ef] peer-focus:font-bold"
-          >
-            Email
-          </label>
-          {touched.email && errors.email && (
-            <p className="text-red-500 text-xs sm:text-sm mt-1">
-              {errors.email}
-            </p>
-          )}
-        </div>
-        <div className="relative w-full pt-5">
-          <textarea
-            className="peer w-full h-12 border-b-2 border-[#9b9b9b] bg-transparent outline-none text-base sm:text-lg text-white py-1.5 sm:py-2 px-0 transition-all placeholder-transparent focus:border-[#ac38ef] focus:border-b-3 focus:font-bold resize-none"
-            placeholder=" "
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            onBlur={() => handleBlur("message")}
-          />
-          <label
-            htmlFor="message"
-            className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#ac38ef] peer-focus:font-bold"
-          >
-            Message
-          </label>
-          {touched.message && errors.message && (
-            <p className="text-red-500 text-xs sm:text-sm mt-1">
-              {errors.message}
-            </p>
-          )}
-        </div>
-        <button
-          type="submit"
-          className="mt-6 sm:mt-8 px-6 py-3 bg-gradient-to-r from-[#8c1df3] to-[#621aaf] rounded-full
-          text-white font-semibold flex items-center gap-2 hover:scale-105 transition-transform
-          shadow-lg hover:shadow-purple-500/20 whitespace-nowrap"
+        <motion.div
+          variants={itemVariants}
+          className="flex items-center gap-2 sm:gap-12 px-2 sm:px-0"
         >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black whitespace-nowrap bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+            &lt;Contact/&gt;
+          </h2>
+          <span className="h-[2px] w-full bg-gradient-to-r from-[#2e2e2e] via-purple-500/20 to-[#2e2e2e]" />
+        </motion.div>
+
+        <motion.div
+          variants={itemVariants}
+          className="w-full max-w-[1200px] mx-auto"
+        >
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-6 w-full max-w-[500px] mx-auto"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-            />
-          </svg>
-          Send Message
-        </button>
-      </form>
-    </div>
+            <div className="relative w-full">
+              <input
+                type="text"
+                className="peer w-full border-b-2 border-[#2e2e2e] bg-transparent outline-none text-base sm:text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#b520fe]"
+                placeholder=" "
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                onBlur={() => handleBlur("name")}
+              />
+              <label
+                htmlFor="name"
+                className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#b520fe]"
+              >
+                Name
+              </label>
+              {touched.name && errors.name && (
+                <p className="text-red-500 text-xs sm:text-sm mt-1">
+                  {errors.name}
+                </p>
+              )}
+            </div>
+            <div className="relative w-full">
+              <input
+                type="email"
+                className="peer w-full border-b-2 border-[#2e2e2e] bg-transparent outline-none text-base sm:text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#b520fe]"
+                placeholder=" "
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                onBlur={() => handleBlur("email")}
+              />
+              <label
+                htmlFor="email"
+                className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#b520fe]"
+              >
+                Email
+              </label>
+              {touched.email && errors.email && (
+                <p className="text-red-500 text-xs sm:text-sm mt-1">
+                  {errors.email}
+                </p>
+              )}
+            </div>
+            <div className="relative w-full">
+              <textarea
+                className="peer w-full min-h-[100px] border-b-2 border-[#2e2e2e] bg-transparent outline-none text-base sm:text-lg text-white py-2 px-0 transition-all placeholder-transparent focus:border-[#b520fe] resize-none"
+                placeholder=" "
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                onBlur={() => handleBlur("message")}
+              />
+              <label
+                htmlFor="message"
+                className="absolute left-0 -top-1 text-base sm:text-lg text-[#9b9b9b] transition-all peer-placeholder-shown:text-base sm:peer-placeholder-shown:text-lg peer-placeholder-shown:top-7 peer-focus:-top-1 peer-focus:text-[#b520fe]"
+              >
+                Message
+              </label>
+              {touched.message && errors.message && (
+                <p className="text-red-500 text-xs sm:text-sm mt-1">
+                  {errors.message}
+                </p>
+              )}
+            </div>
+            <motion.button
+              type="submit"
+              variants={itemVariants}
+              className="mt-4 px-8 py-3 bg-gradient-to-r from-[#b520fe] to-[#621aaf] rounded-full
+              text-white font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-all
+              shadow-lg hover:shadow-purple-500/20 whitespace-nowrap w-fit mx-auto"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                />
+              </svg>
+              Send Message
+            </motion.button>
+          </form>
+        </motion.div>
+      </motion.div>
+    </section>
   );
 }
 
