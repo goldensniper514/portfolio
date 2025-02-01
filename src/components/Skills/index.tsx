@@ -9,8 +9,15 @@ import {
   TouchSensor,
   useSensor,
   useSensors,
+  DragEndEvent,
+  closestCenter,
 } from "@dnd-kit/core";
 import { useState } from "react";
+import {
+  SortableContext,
+  arrayMove,
+  rectSortingStrategy,
+} from "@dnd-kit/sortable";
 
 // Dynamically import SkillButton with no SSR
 const SkillButton = dynamic(() => import("../SkillButton"), {
@@ -20,6 +27,22 @@ const SkillButton = dynamic(() => import("../SkillButton"), {
 const Skills = () => {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [mounted, setMounted] = React.useState(false);
+  const [skills, setSkills] = useState([
+    { icon: "typescript", name: "TypeScript" },
+    { icon: "javascript", name: "JavaScript" },
+    { icon: "react-dark", name: "React" },
+    { icon: "nextjs-dark", name: "Next.js" },
+    { icon: "tailwindcss-dark", name: "Tailwind" },
+    { icon: "nodejs-dark", name: "Node.js" },
+    { icon: "python-dark", name: "Python" },
+    { icon: "cpp", name: "C++" },
+    { icon: "git", name: "Git" },
+    { icon: "github-dark", name: "GitHub" },
+    { icon: "docker", name: "Docker" },
+    { icon: "linux-dark", name: "Linux" },
+    { icon: "mysql-dark", name: "MySQL" },
+    { icon: "postgresql-dark", name: "PostgreSQL" },
+  ]);
 
   React.useEffect(() => {
     setMounted(true);
@@ -44,8 +67,21 @@ const Skills = () => {
     setActiveId(event.active.id as string);
   };
 
-  const handleDragEnd = () => {
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
     setActiveId(null);
+
+    if (over && active.id !== over.id) {
+      setSkills((items) => {
+        const oldIndex = items.findIndex(
+          (item) => `skill-${item.name}` === active.id
+        );
+        const newIndex = items.findIndex(
+          (item) => `skill-${item.name}` === over.id
+        );
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
   };
 
   if (!mounted) {
@@ -70,6 +106,7 @@ const Skills = () => {
         sensors={sensors}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
+        collisionDetection={closestCenter}
       >
         <div className="relative flex flex-wrap items-start gap-2 min-h-[250px] bg-[#2e2e2e20] rounded-xl p-4 sm:p-6 border border-[#2e2e2e] overflow-hidden group/container backdrop-blur-sm">
           {/* Background pattern */}
@@ -88,76 +125,19 @@ const Skills = () => {
 
           {/* Skills */}
           <div className="relative z-10 flex flex-wrap items-start gap-4 w-full justify-center sm:justify-evenly pt-12">
-            <SkillButton
-              icon="typescript"
-              skill="TypeScript"
-              isDragging={activeId === "skill-TypeScript"}
-            />
-            <SkillButton
-              icon="javascript"
-              skill="JavaScript"
-              isDragging={activeId === "skill-JavaScript"}
-            />
-            <SkillButton
-              icon="react-dark"
-              skill="React"
-              isDragging={activeId === "skill-React"}
-            />
-            <SkillButton
-              icon="nextjs-dark"
-              skill="Next.js"
-              isDragging={activeId === "skill-Next.js"}
-            />
-            <SkillButton
-              icon="tailwindcss-dark"
-              skill="Tailwind"
-              isDragging={activeId === "skill-Tailwind"}
-            />
-            <SkillButton
-              icon="nodejs-dark"
-              skill="Node.js"
-              isDragging={activeId === "skill-Node.js"}
-            />
-            <SkillButton
-              icon="python-dark"
-              skill="Python"
-              isDragging={activeId === "skill-Python"}
-            />
-            <SkillButton
-              icon="cpp"
-              skill="C++"
-              isDragging={activeId === "skill-C++"}
-            />
-            <SkillButton
-              icon="git"
-              skill="Git"
-              isDragging={activeId === "skill-Git"}
-            />
-            <SkillButton
-              icon="github-dark"
-              skill="GitHub"
-              isDragging={activeId === "skill-GitHub"}
-            />
-            <SkillButton
-              icon="docker"
-              skill="Docker"
-              isDragging={activeId === "skill-Docker"}
-            />
-            <SkillButton
-              icon="linux-dark"
-              skill="Linux"
-              isDragging={activeId === "skill-Linux"}
-            />
-            <SkillButton
-              icon="mysql-dark"
-              skill="MySQL"
-              isDragging={activeId === "skill-MySQL"}
-            />
-            <SkillButton
-              icon="postgresql-dark"
-              skill="PostgreSQL"
-              isDragging={activeId === "skill-PostgreSQL"}
-            />
+            <SortableContext
+              items={skills.map((skill) => `skill-${skill.name}`)}
+              strategy={rectSortingStrategy}
+            >
+              {skills.map((skill) => (
+                <SkillButton
+                  key={skill.name}
+                  icon={skill.icon}
+                  skill={skill.name}
+                  isDragging={activeId === `skill-${skill.name}`}
+                />
+              ))}
+            </SortableContext>
           </div>
         </div>
       </DndContext>

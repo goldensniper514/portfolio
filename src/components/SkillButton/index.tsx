@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify-icon/react";
-import { useDraggable } from "@dnd-kit/core";
+import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
 interface SkillButtonProps {
@@ -11,13 +11,14 @@ interface SkillButtonProps {
 }
 
 const SkillButton = ({ icon, skill, isDragging }: SkillButtonProps) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: `skill-${skill}`,
-  });
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({
+      id: `skill-${skill}`,
+    });
 
   const style = {
     transform: CSS.Transform.toString(transform),
-    transition: !isDragging ? "transform 0.2s ease-out" : undefined,
+    transition,
   };
 
   return (
@@ -32,7 +33,7 @@ const SkillButton = ({ icon, skill, isDragging }: SkillButtonProps) => {
         style={style}
         {...listeners}
         {...attributes}
-        className={`flex items-center gap-1.5 px-2.5 py-1.5 bg-[#2e2e2e50] rounded-lg border border-[#2e2e2e] will-change-transform group
+        className={`flex items-center gap-1.5 px-2.5 py-1.5 bg-[#2e2e2e50] rounded-lg border border-[#2e2e2e] will-change-transform group pl-0.5
           ${
             !isDragging
               ? "hover:border-[#b520fe] hover:bg-[#2e2e2e80] hover:scale-105 hover:shadow-[0_0_15px_rgba(181,32,254,0.3)]"
