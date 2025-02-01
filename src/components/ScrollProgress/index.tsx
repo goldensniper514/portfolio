@@ -6,7 +6,9 @@ import { FaChevronUp } from "react-icons/fa";
 
 const ScrollProgress = () => {
   const [isClient, setIsClient] = useState(false);
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    offset: ["start start", "end end"],
+  });
 
   // Smooth spring animation for the progress
   const scaleX = useSpring(scrollYProgress, {
@@ -37,44 +39,49 @@ const ScrollProgress = () => {
   if (!isClient) return null;
 
   return (
-    <div className="fixed left-0 top-0 bottom-0 w-16 z-50 hidden lg:block pl-4">
-      <div className="relative h-full flex flex-col items-center">
-        {/* Progress line container */}
-        <div className="h-full w-[2px]">
-          <svg
-            width="100%"
-            height="100%"
-            preserveAspectRatio="none"
-            className="stroke-[#2e2e2e] stroke-[2.5]"
-          >
-            {/* Background line */}
-            <line x1="50%" y1="0" x2="50%" y2="100%" className="opacity-30" />
-            {/* Animated line */}
-            <motion.line
-              x1="50%"
-              y1="0"
-              x2="50%"
-              y2="100%"
-              style={{
-                pathLength: scaleX,
-                stroke: gradient,
-              }}
-              className="stroke-[2.5]"
-            />
-          </svg>
+    <>
+      <div
+        className="fixed left-0 top-0 w-16 z-50 hidden lg:block pl-4"
+        style={{ height: "calc(100vh - var(--footer-height) - 16px)" }}
+      >
+        <div className="relative h-full flex flex-col items-center">
+          {/* Progress line container */}
+          <div className="h-full w-[2px]">
+            <svg
+              width="100%"
+              height="100%"
+              preserveAspectRatio="none"
+              className="stroke-[#2e2e2e] stroke-[2.5]"
+            >
+              {/* Background line */}
+              <line x1="50%" y1="0" x2="50%" y2="100%" className="opacity-30" />
+              {/* Animated line */}
+              <motion.line
+                x1="50%"
+                y1="0"
+                x2="50%"
+                y2="100%"
+                style={{
+                  pathLength: scaleX,
+                  stroke: gradient,
+                }}
+                className="stroke-[2.5]"
+              />
+            </svg>
+          </div>
         </div>
-
-        {/* Scroll to top arrow */}
-        <motion.button
-          style={{ opacity: arrowOpacity }}
-          onClick={scrollToTop}
-          className="absolute bottom-8 bg-[#2e2e2e50] p-3 rounded-full border border-[#2e2e2e]
-            hover:border-[#343434] transition-all duration-200 hover:scale-110 hover:bg-[#2e2e2e80]"
-        >
-          <FaChevronUp className="w-6 h-6 text-[#8c1df3]" />
-        </motion.button>
       </div>
-    </div>
+
+      {/* Scroll to top arrow */}
+      <motion.button
+        style={{ opacity: arrowOpacity }}
+        onClick={scrollToTop}
+        className="fixed left-4 bottom-24 z-50 hidden lg:block bg-[#2e2e2e50] p-3 rounded-full border border-[#2e2e2e]
+          hover:border-[#343434] transition-all duration-200 hover:scale-110 hover:bg-[#2e2e2e80]"
+      >
+        <FaChevronUp className="w-6 h-6 text-[#8c1df3]" />
+      </motion.button>
+    </>
   );
 };
 

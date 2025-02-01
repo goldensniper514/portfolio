@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="w-full border-t border-gray-800 mt-20">
+    <footer className="w-full border-t border-gray-800 ">
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex justify-center space-x-8">
           <Link
