@@ -77,10 +77,8 @@ function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Mark all fields as touched
     setTouched({ name: true, email: true, message: true });
 
-    // Validate all fields
     const nameError = validateField("name", name);
     const emailError = validateField("email", email);
     const messageError = validateField("message", message);
@@ -233,7 +231,6 @@ function Contact() {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   strokeLinecap="round"

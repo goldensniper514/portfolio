@@ -14,7 +14,6 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
-  // Determine the target URL based on link and repo availability
   const targetUrl = link || repo;
 
   return (
@@ -26,7 +25,7 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
       whileHover={{ y: -5 }}
       whileTap={{ scale: 0.98 }}
       onClick={() => targetUrl && window.open(targetUrl, "_blank")}
-      className="bg-[#2e2e2e50] w-full sm:w-[400px] lg:w-[500px] min-h-[450px] sm:min-h-[550px] rounded-2xl overflow-hidden p-4 sm:p-8 border border-[#2e2e2e]
+      className="bg-[#2e2e2e50] w-[calc(100%-1rem)] sm:w-[400px] lg:w-[500px] min-h-[400px] sm:min-h-[550px] rounded-2xl overflow-hidden p-2 sm:p-8 border border-[#2e2e2e]
         transition-all duration-100 hover:border-[#343434] cursor-pointer group"
     >
       <motion.div
@@ -34,7 +33,7 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.2 }}
       >
-        <div className="w-full h-[200px] sm:h-[250px] mb-4 rounded-2xl overflow-hidden relative">
+        <div className="w-full h-[180px] sm:h-[250px] mb-4 rounded-2xl overflow-hidden relative">
           <Image
             src={`/assets/${image}`}
             alt={title}
@@ -45,7 +44,7 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
       </motion.div>
       <div>
         <div className="flex flex-row items-center justify-between">
-          <p className="text-xl sm:text-2xl font-bold break-words">{title}</p>
+          <p className="text-lg sm:text-2xl font-bold break-words">{title}</p>
           <div className="flex flex-row gap-2 sm:gap-0">
             {repo && (
               <motion.a
@@ -54,32 +53,34 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-200 hover:opacity-50"
-                onClick={(e) => e.stopPropagation()} // Prevent card click when clicking the icon
+                onClick={(e) => e.stopPropagation()}
               >
-                <Icon icon="bxl:github" className="text-2xl" />
+                <Icon icon="bxl:github" className="text-xl sm:text-2xl" />
               </motion.a>
             )}
             {link && (
               <>
-                {repo && <div className="mx-4 w-[1px] h-auto bg-[#2e2e2e]" />}
+                {repo && (
+                  <div className="mx-2 sm:mx-4 w-[1px] h-auto bg-[#2e2e2e]" />
+                )}
                 <motion.a
                   whileHover={{ scale: 1.1 }}
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-all duration-200 hover:opacity-50"
-                  onClick={(e) => e.stopPropagation()} // Prevent card click when clicking the icon
+                  onClick={(e) => e.stopPropagation()}
                 >
                   <Icon
                     icon="material-symbols:link-rounded"
-                    className="text-2xl"
+                    className="text-xl sm:text-2xl"
                   />
                 </motion.a>
               </>
             )}
           </div>
         </div>
-        <p className="mt-4 text-base sm:text-lg">{desc}</p>
+        <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-gray-300">{desc}</p>
       </div>
     </motion.div>
   );
@@ -138,7 +139,7 @@ const Projects = () => {
         />
       </motion.div>
 
-      <div className="flex flex-wrap gap-6 justify-center px-4 sm:px-0">
+      <div className="flex flex-wrap gap-2 sm:gap-6 justify-center px-0 sm:px-0">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}

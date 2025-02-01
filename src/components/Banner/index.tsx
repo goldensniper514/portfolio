@@ -58,10 +58,8 @@ export default function Banner() {
       id="home"
       ref={ref}
     >
-      {/* Vue-inspired animated background */}
       <div className="absolute inset-0 z-0 flex items-center justify-center">
         <div className="relative w-[min(800px,90vw)] h-[min(800px,90vw)] md:w-[800px] md:h-[800px]">
-          {/* Large rotating hexagon */}
           <motion.div
             className="absolute inset-0 border-[2px] md:border-[3px] border-purple-500/30"
             style={{
@@ -85,7 +83,6 @@ export default function Banner() {
               },
             }}
           />
-          {/* Medium rotating hexagon */}
           <motion.div
             className="absolute inset-[15%] border-[2px] md:border-[3px] border-pink-500/40"
             style={{
@@ -109,7 +106,6 @@ export default function Banner() {
               },
             }}
           />
-          {/* Small rotating hexagon */}
           <motion.div
             className="absolute inset-[30%] border-[2px] md:border-[3px] border-purple-500/50"
             style={{
@@ -136,12 +132,10 @@ export default function Banner() {
         </div>
       </div>
 
-      {/* Dot pattern background */}
       <div className="absolute inset-0 z-0">
         <div className="h-full w-full bg-[radial-gradient(circle,_#585858_1px,_transparent_1px),radial-gradient(circle,_#585858_1.2px,_transparent_1.2px)] bg-[length:40px_40px]" />
       </div>
 
-      {/* Content container with dark overlay */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -159,14 +153,13 @@ export default function Banner() {
             </span>
           </motion.h1>
 
-          {/* Typewriter effect */}
           <motion.h3
             variants={itemVariants}
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mt-2 md:mt-4 leading-tight"
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
               <span>Passionate about</span>
-              <div className="min-w-[150px] max-w-[280px] sm:w-auto inline-flex items-center justify-start overflow-hidden">
+              <div className="w-[200px] sm:w-[220px] md:w-[280px] inline-flex items-center justify-start overflow-hidden">
                 <span className="bg-gradient-to-r from-[#8c1df3] via-[#f714d1] to-[#621aaf] text-transparent bg-clip-text bg-[length:500%] animate-gradient">
                   {typewriterText}
                 </span>
@@ -175,15 +168,13 @@ export default function Banner() {
             </div>
           </motion.h3>
 
-          {/* Occupation */}
           <motion.h3
             variants={itemVariants}
-            className="text-lg sm:text-xl md:text-2xl font-thin mt-2 md:mt-4 max-w-[90%] mx-auto leading-relaxed break-words"
+            className="text-lg sm:text-xl md:text-2xl font-thin mt-2 md:mt-4 max-w-[90%] mx-auto leading-relaxed"
           >
             {occupation}
           </motion.h3>
 
-          {/* Resume Download Button */}
           <motion.div
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
