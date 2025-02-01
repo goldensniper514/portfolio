@@ -37,12 +37,20 @@ const containerVariants = {
   },
 };
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 const Education = () => {
   return (
-    <div
-      id="education"
-      className="container mx-auto px-0 sm:px-6 lg:px-8 py-4 sm:py-16 lg:py-20 relative"
-    >
+    <div id="education" className="relative w-full py-4 sm:py-16 lg:py-20">
       {/* Vue-inspired animated background */}
       <div className="absolute inset-0 z-[1] flex items-center justify-center">
         <div className="relative w-[800px] h-[800px]">
@@ -127,19 +135,23 @@ const Education = () => {
       </div>
 
       {/* Content container with dark overlay */}
-      <div className="relative z-[2] w-full px-14">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
+          className="relative z-[2]"
         >
-          <div className="flex items-center gap-12 mb-8">
-            <h2 className="text-5xl font-black whitespace-nowrap bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center gap-2 sm:gap-12 px-2 sm:px-0 mb-8"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black whitespace-nowrap bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
               &lt;Education/&gt;
             </h2>
-            <span className="h-[2px] w-full bg-[#2e2e2e]" />
-          </div>
+            <span className="h-[2px] w-full bg-gradient-to-r from-[#2e2e2e] via-purple-500/20 to-[#2e2e2e]" />
+          </motion.div>
           <div className="w-full max-w-[1200px] mx-auto">
             <Timeline
               data={educationData.map((item) => ({
