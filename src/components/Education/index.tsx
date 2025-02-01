@@ -37,12 +37,14 @@ const containerVariants = {
   },
 };
 
-
 const Education = () => {
   return (
-    <div id="education" className="relative w-full overflow-hidden py-14">
+    <div
+      id="education"
+      className="container mx-auto px-0 sm:px-6 lg:px-8 py-4 sm:py-16 lg:py-20 relative"
+    >
       {/* Vue-inspired animated background */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center">
+      <div className="absolute inset-0 z-[1] flex items-center justify-center">
         <div className="relative w-[800px] h-[800px]">
           {/* Large rotating hexagon */}
           <motion.div
@@ -120,42 +122,43 @@ const Education = () => {
       </div>
 
       {/* Dot pattern background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-[1]">
         <div className="h-full w-full bg-[radial-gradient(circle,_#585858_1px,_transparent_1px),radial-gradient(circle,_#585858_1.2px,_transparent_1.2px)] bg-[length:40px_40px]" />
       </div>
 
       {/* Content container with dark overlay */}
-      <div className="relative z-10 w-full bg-black/30 px-14">
+      <div className="relative z-[2] w-full px-14">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="flex items-center gap-12 mb-8"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black whitespace-nowrap bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-            &lt;Education/&gt;
-          </h2>
-          <span className="h-[2px] w-full bg-gradient-to-r from-[#2e2e2e] via-purple-500/20 to-[#2e2e2e]" />
+          <div className="flex items-center gap-12 mb-8">
+            <h2 className="text-5xl font-black whitespace-nowrap bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
+              &lt;Education/&gt;
+            </h2>
+            <span className="h-[2px] w-full bg-[#2e2e2e]" />
+          </div>
+          <div className="w-full max-w-[1200px] mx-auto">
+            <Timeline
+              data={educationData.map((item) => ({
+                title: item.title,
+                content: (
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">
+                      {item.cardTitle}
+                    </h3>
+                    <p className="text-gray-300 font-medium mb-2">
+                      {item.cardSubtitle}
+                    </p>
+                    <p className="text-gray-400">{item.cardDetailedText}</p>
+                  </div>
+                ),
+              }))}
+            />
+          </div>
         </motion.div>
-        <div className="w-full max-w-[1200px] mx-auto">
-          <Timeline
-            data={educationData.map((item) => ({
-              title: item.title,
-              content: (
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {item.cardTitle}
-                  </h3>
-                  <p className="text-gray-300 font-medium mb-2">
-                    {item.cardSubtitle}
-                  </p>
-                  <p className="text-gray-400">{item.cardDetailedText}</p>
-                </div>
-              ),
-            }))}
-          />
-        </div>
       </div>
     </div>
   );

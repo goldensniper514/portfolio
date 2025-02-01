@@ -22,13 +22,11 @@ const SkillButton = ({ icon, skill, isDragging }: SkillButtonProps) => {
 
   return (
     <div className="relative">
-      {/* Placeholder that shows when dragging */}
       <div
         className={`absolute inset-0 border-2 border-dashed border-[#b520fe40] rounded-lg transition-opacity duration-200 ${
           isDragging ? "opacity-100" : "opacity-0"
         }`}
       />
-      {/* Actual button */}
       <div
         ref={setNodeRef}
         style={style}
