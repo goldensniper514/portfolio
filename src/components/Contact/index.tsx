@@ -224,12 +224,12 @@ function Contact() {
             <motion.button
               type="submit"
               variants={itemVariants}
-              className="mt-4 px-8 py-3 bg-gradient-to-r from-[#b520fe] to-[#621aaf] rounded-full
-              text-white font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-all
+              className="mt-4 px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-[#b520fe] to-[#621aaf] rounded-full
+              text-white text-sm sm:text-base font-semibold flex items-center justify-center gap-2 hover:scale-105 transition-all
               shadow-lg hover:shadow-purple-500/20 whitespace-nowrap w-fit mx-auto"
             >
               <svg
-                className="w-5 h-5"
+                className="w-4 h-4 sm:w-5 sm:h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
