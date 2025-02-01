@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import CursorFollower from "@/components/CursorFollower";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,6 +72,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#000000]`}
       >
+        <CursorFollower />
         <ScrollProgress />
         {children}
         <Footer />
