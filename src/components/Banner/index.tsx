@@ -54,10 +54,11 @@ export default function Banner() {
 
   return (
     <div
-      className="h-screen w-full relative overflow-x-hidden"
+      className="min-h-[100dvh] w-full relative overflow-x-hidden"
       id="home"
       ref={ref}
     >
+      {/* Background hexagons */}
       <div className="absolute inset-0 z-0 flex items-center justify-center">
         <div className="relative w-[min(800px,90vw)] h-[min(800px,90vw)] md:w-[800px] md:h-[800px]">
           <motion.div
@@ -132,15 +133,17 @@ export default function Banner() {
         </div>
       </div>
 
+      {/* Background dots */}
       <div className="absolute inset-0 z-0">
         <div className="h-full w-full bg-[radial-gradient(circle,_#585858_1px,_transparent_1px),radial-gradient(circle,_#585858_1.2px,_transparent_1.2px)] bg-[length:40px_40px]" />
       </div>
 
+      {/* Content */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
-        className="relative z-10 h-full w-full bg-black/30 flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 text-center"
+        className="relative z-10 min-h-[100dvh] w-full bg-black/30 flex items-center justify-center px-4 sm:px-6 md:px-8 text-center"
       >
         <div className="max-w-4xl mx-auto">
           <motion.h1

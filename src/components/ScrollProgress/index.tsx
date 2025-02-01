@@ -7,31 +7,27 @@ import { FaChevronUp } from "react-icons/fa";
 const ScrollProgress = () => {
   const [isClient, setIsClient] = useState(false);
   const { scrollYProgress } = useScroll({
-    offset: ["start start", "end end"],
+    offset: ["start 15%", "end 85%"],
   });
 
-  // Smooth spring animation for the progress
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 150,
+    damping: 20,
     restDelta: 0.001,
   });
 
-  // Gradient animation based on scroll progress
   const gradient = useTransform(
     scrollYProgress,
     [0, 0.4, 0.8, 1],
     ["#8c1df3", "#f714d1", "#621aaf", "#8c1df3"]
   );
 
-  // Arrow opacity based on scroll progress
   const arrowOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Hydration fix
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -72,7 +68,6 @@ const ScrollProgress = () => {
         </div>
       </div>
 
-      {/* Scroll to top arrow */}
       <motion.button
         style={{ opacity: arrowOpacity }}
         onClick={scrollToTop}
