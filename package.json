@@ -16,12 +16,16 @@
     "@heroicons/react": "^2.2.0",
     "@iconify-icon/react": "^2.3.0",
     "@iconify/react": "^5.2.0",
+    "@react-three/drei": "^9.121.4",
+    "@react-three/fiber": "^8.17.14",
     "@types/gsap": "^1.20.2",
+    "@types/three": "^0.173.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.0.6",
     "gsap": "^3.12.7",
     "lucide-react": "^0.474.0",
+    "maath": "^0.10.8",
     "next": "15.1.6",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
@@ -33,7 +37,8 @@
     "react-simple-typewriter": "^5.0.1",
     "sonner": "^1.7.3",
     "tailwind-merge": "^3.0.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.173.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
