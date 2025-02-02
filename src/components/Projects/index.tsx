@@ -11,9 +11,17 @@ interface ProjectCardProps {
   desc: string;
   repo?: string;
   link?: string;
+  technologies: string[];
 }
 
-const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
+const ProjectCard = ({
+  title,
+  image,
+  desc,
+  repo,
+  link,
+  technologies,
+}: ProjectCardProps) => {
   const targetUrl = link || repo;
 
   return (
@@ -26,7 +34,7 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
       whileTap={{ scale: 0.98 }}
       onClick={() => targetUrl && window.open(targetUrl, "_blank")}
       className="bg-[#2e2e2e50] w-[calc(100%-1rem)] sm:w-[400px] lg:w-[500px] min-h-[400px] sm:min-h-[550px] rounded-2xl overflow-hidden p-2 sm:p-8 border border-[#2e2e2e]
-        transition-all duration-100 hover:border-[#343434] cursor-pointer group"
+        transition-all duration-100 hover:border-[#343434] cursor-pointer group flex flex-col"
     >
       <motion.div
         className="flex justify-center"
@@ -42,45 +50,59 @@ const ProjectCard = ({ title, image, desc, repo, link }: ProjectCardProps) => {
           />
         </div>
       </motion.div>
-      <div>
-        <div className="flex flex-row items-center justify-between">
-          <p className="text-lg sm:text-2xl font-bold break-words">{title}</p>
-          <div className="flex flex-row gap-2 sm:gap-0">
-            {repo && (
-              <motion.a
-                whileHover={{ scale: 1.1 }}
-                href={repo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-all duration-200 hover:opacity-50"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Icon icon="bxl:github" className="text-xl sm:text-2xl" />
-              </motion.a>
-            )}
-            {link && (
-              <>
-                {repo && (
-                  <div className="mx-2 sm:mx-4 w-[1px] h-auto bg-[#2e2e2e]" />
-                )}
+      <div className="flex flex-col flex-grow">
+        <div>
+          <div className="flex flex-row items-center justify-between">
+            <p className="text-lg sm:text-2xl font-bold break-words">{title}</p>
+            <div className="flex flex-row gap-2 sm:gap-0">
+              {repo && (
                 <motion.a
                   whileHover={{ scale: 1.1 }}
-                  href={link}
+                  href={repo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-all duration-200 hover:opacity-50"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <Icon
-                    icon="material-symbols:link-rounded"
-                    className="text-xl sm:text-2xl"
-                  />
+                  <Icon icon="bxl:github" className="text-xl sm:text-2xl" />
                 </motion.a>
-              </>
-            )}
+              )}
+              {link && (
+                <>
+                  {repo && (
+                    <div className="mx-2 sm:mx-4 w-[1px] h-auto bg-[#2e2e2e]" />
+                  )}
+                  <motion.a
+                    whileHover={{ scale: 1.1 }}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-all duration-200 hover:opacity-50"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Icon
+                      icon="material-symbols:link-rounded"
+                      className="text-xl sm:text-2xl"
+                    />
+                  </motion.a>
+                </>
+              )}
+            </div>
           </div>
+          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-gray-300">
+            {desc}
+          </p>
         </div>
-        <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-gray-300">{desc}</p>
+        <div className="flex flex-wrap gap-2 mt-auto pt-4">
+          {technologies.map((tech, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 text-sm bg-[#2e2e2e] rounded-full text-gray-300"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
     </motion.div>
   );
@@ -97,6 +119,7 @@ const Projects = () => {
       desc: "A personal portfolio website built with Next.js and TailwindCSS to showcase my projects, qualifications, and skills. Features a modern design with smooth animations and responsive layout.",
       repo: "https://github.com/osallak/portfolio",
       link: "https://portfolio-zbbj.vercel.app/",
+      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
     },
     {
       title: "Spotify Profile Stats & Dashboard",
@@ -104,6 +127,7 @@ const Projects = () => {
       desc: "A Spotify profile stats and dashboard built with Next.js and TailwindCSS. It allows you to see your Spotify profile stats and dashboard.",
       repo: "https://github.com/osallak/spotify-wrapped",
       link: "https://spotify-wrapped-xi.vercel.app/",
+      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Spotify API"],
     },
     {
       title: "Wordle Clone",
@@ -111,12 +135,50 @@ const Projects = () => {
       desc: "A Wordle clone built with React. It allows you to play the game and see your stats.",
       repo: "https://github.com/osallak/wordle-clone",
       link: "https://react-wordle-orcin.vercel.app/",
+      technologies: ["React", "JavaScript", "CSS"],
     },
     {
       title: "Streamix",
       image: "streamix.png",
       desc: "A movie streaming platform built with Next.js and TailwindCSS. It allows you to stream movies and TV shows ",
       repo: "https://github.com/osallak/streamix",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "TailwindCSS",
+        "TMDB API",
+        "VIDSRC API",
+      ],
+    },
+    {
+      title: "Multiplayer Pong Game",
+      image: "pong.png",
+      desc: "A multiplayer pong game built with React and Socket.io. It allows you to play the game, chat, and see your stats with your friends.",
+      repo: "https://github.com/osallak/SpinShot",
+      technologies: [
+        "Next.js",
+        "Socket.io",
+        "TailwindCSS",
+        "Nest.js",
+        "PostgreSQL",
+        "REST API",
+        "Docker",
+      ],
+    },
+    {
+      title: "System Administration Project",
+      image: "inception.png",
+      desc: "A containerized web infrastructure project featuring WordPress, NGINX, and MariaDB. Built with Docker for seamless deployment, featuring TLS encryption, automated container orchestration, and persistent data storage.",
+      repo: "https://github.com/osallak/inception",
+      technologies: [
+        "Docker",
+        "NGINX",
+        "WordPress",
+        "MariaDB",
+        "PHP-FPM",
+        "Shell Script",
+        "TLS 1.2/1.3",
+      ],
     },
   ];
 
