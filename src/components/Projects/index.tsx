@@ -3,7 +3,7 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -111,76 +111,46 @@ const ProjectCard = ({
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
+  const [projects, setProjects] = useState<ProjectCardProps[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const projects = [
-    {
-      title: "Portfolio Website",
-      image: "portfolio.jpeg",
-      desc: "A personal portfolio website built with Next.js and TailwindCSS to showcase my projects, qualifications, and skills. Features a modern design with smooth animations and responsive layout.",
-      repo: "https://github.com/osallak/portfolio",
-      link: "https://portfolio-zbbj.vercel.app/",
-      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
-    },
-    {
-      title: "Spotify Profile Stats & Dashboard",
-      image: "spotify.png",
-      desc: "A Spotify profile stats and dashboard built with Next.js and TailwindCSS. It allows you to see your Spotify profile stats and dashboard.",
-      repo: "https://github.com/osallak/spotify-wrapped",
-      link: "https://spotify-wrapped-xi.vercel.app/",
-      technologies: ["Next.js", "TypeScript", "TailwindCSS", "Spotify API"],
-    },
-    {
-      title: "Wordle Clone",
-      image: "wordle.png",
-      desc: "A Wordle clone built with React. It allows you to play the game and see your stats.",
-      repo: "https://github.com/osallak/wordle-clone",
-      link: "https://react-wordle-orcin.vercel.app/",
-      technologies: ["React", "JavaScript", "CSS"],
-    },
-    {
-      title: "Streamix",
-      image: "streamix.png",
-      desc: "A movie streaming platform built with Next.js and TailwindCSS. It allows you to stream movies and TV shows ",
-      repo: "https://github.com/osallak/streamix",
-      technologies: [
-        "Next.js",
-        "TypeScript",
-        "TailwindCSS",
-        "TMDB API",
-        "VIDSRC API",
-      ],
-    },
-    {
-      title: "Multiplayer Pong Game",
-      image: "pong.png",
-      desc: "A multiplayer pong game built with React and Socket.io. It allows you to play the game, chat, and see your stats with your friends.",
-      repo: "https://github.com/osallak/SpinShot",
-      technologies: [
-        "Next.js",
-        "Socket.io",
-        "TailwindCSS",
-        "Nest.js",
-        "PostgreSQL",
-        "REST API",
-        "Docker",
-      ],
-    },
-    {
-      title: "System Administration Project",
-      image: "inception.png",
-      desc: "A containerized web infrastructure project featuring WordPress, NGINX, and MariaDB. Built with Docker for seamless deployment, featuring TLS encryption, automated container orchestration, and persistent data storage.",
-      repo: "https://github.com/osallak/inception",
-      technologies: [
-        "Docker",
-        "NGINX",
-        "WordPress",
-        "MariaDB",
-        "PHP-FPM",
-        "Shell Script",
-        "TLS 1.2/1.3",
-      ],
-    },
-  ];
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("/api/projects");
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects");
+        }
+        const data = await response.json();
+        setProjects(data.projects);
+      } catch (err) {
+        setError(
+          err instanceof Error ? err.message : "Failed to load projects"
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <p className="text-red-500">{error}</p>
+      </div>
+    );
+  }
 
   return (
     <div id="projects" className="pt-4" ref={ref}>
