@@ -3,6 +3,50 @@ import { NextResponse } from "next/server";
 const GITHUB_API_URL = "https://api.github.com/graphql";
 const GITHUB_USERNAME = "osallak"; // Your GitHub username
 
+interface LanguageEdge {
+  size: number;
+  node: {
+    color: string;
+    name: string;
+  };
+}
+
+interface Repository {
+  languages: {
+    edges: LanguageEdge[];
+  };
+}
+
+interface ContributionDay {
+  contributionCount: number;
+  date: string;
+}
+
+interface ContributionWeek {
+  contributionDays: ContributionDay[];
+}
+
+interface GitHubGraphQLResponse {
+  data: {
+    user: {
+      contributionsCollection: {
+        contributionCalendar: {
+          totalContributions: number;
+          weeks: ContributionWeek[];
+        };
+        contributionYears: number[];
+        totalCommitContributions: number;
+        totalIssueContributions: number;
+        totalPullRequestContributions: number;
+        totalPullRequestReviewContributions: number;
+      };
+      repositories: {
+        nodes: Repository[];
+      };
+    };
+  };
+}
+
 // GraphQL query to fetch contribution data
 const query = `
   query($username: String!) {
@@ -58,29 +102,30 @@ export async function GET() {
       }),
     });
 
-    const data = await response.json();
+    const data = (await response.json()) as GitHubGraphQLResponse;
 
-    if (data.errors) {
-      throw new Error(data.errors[0].message);
+    if ('errors' in data) {
+      throw new Error((data as { errors: { message: string }[] }).errors[0].message);
     }
 
     const contributionData = data.data.user.contributionsCollection;
     const repositories = data.data.user.repositories.nodes;
 
     // Process languages
-    const languageMap = new Map();
+    const languageMap = new Map<string, { size: number; color: string }>();
     let totalSize = 0;
 
-    repositories.forEach((repo: any) => {
+    repositories.forEach((repo) => {
       if (repo.languages.edges) {
-        repo.languages.edges.forEach((edge: any) => {
+        repo.languages.edges.forEach((edge) => {
           const { name, color } = edge.node;
           const size = edge.size;
           totalSize += size;
 
           if (languageMap.has(name)) {
+            const existing = languageMap.get(name)!;
             languageMap.set(name, {
-              size: languageMap.get(name).size + size,
+              size: existing.size + size,
               color,
             });
           } else {
@@ -101,8 +146,8 @@ export async function GET() {
 
     // Process contribution data
     const contributionDays = contributionData.contributionCalendar.weeks
-      .flatMap((week: any) => week.contributionDays)
-      .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .flatMap((week) => week.contributionDays)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       .slice(0, 30); // Get last 30 days
 
     return NextResponse.json({
@@ -113,7 +158,7 @@ export async function GET() {
         pullRequests: contributionData.totalPullRequestContributions,
         reviews: contributionData.totalPullRequestReviewContributions,
       },
-      contributionsByDay: contributionDays.map((day: any) => ({
+      contributionsByDay: contributionDays.map((day) => ({
         date: day.date,
         count: day.contributionCount,
       })),

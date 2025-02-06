@@ -1,31 +1,33 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
+import { promises as fs } from 'fs';
 import path from 'path';
-
-const dataFilePath = path.join(process.cwd(), 'public/data/projects.json');
 
 export async function GET() {
   try {
-    const fileContent = await fs.readFile(dataFilePath, 'utf-8');
-    const data = JSON.parse(fileContent);
-    return NextResponse.json(data);
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch projects' }, { status: 500 });
+    const projectsPath = path.join(process.cwd(), 'public/data/projects.json');
+    const projectsData = await fs.readFile(projectsPath, 'utf8');
+    const projects = JSON.parse(projectsData);
+
+    return NextResponse.json(projects);
+  } catch {
+    return NextResponse.json(
+      { message: 'Failed to fetch projects' },
+      { status: 500 }
+    );
   }
 }
 
-export async function POST(request: Request) {
+export async function POST() {
   try {
-    const newProject = await request.json();
-    const fileContent = await fs.readFile(dataFilePath, 'utf-8');
-    const data = JSON.parse(fileContent);
+    const projectsPath = path.join(process.cwd(), 'public/data/projects.json');
+    const projectsData = await fs.readFile(projectsPath, 'utf8');
+    const projects = JSON.parse(projectsData);
 
-    data.projects.push(newProject);
-
-    await fs.writeFile(dataFilePath, JSON.stringify(data, null, 2));
-
-    return NextResponse.json({ message: 'Project added successfully' });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to add project' }, { status: 500 });
+    return NextResponse.json(projects);
+  } catch {
+    return NextResponse.json(
+      { message: 'Failed to update projects' },
+      { status: 500 }
+    );
   }
 }
