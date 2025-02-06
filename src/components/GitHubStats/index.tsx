@@ -14,7 +14,7 @@ const ActivityCard = ({
 }) => (
   <motion.div
     whileHover={{ scale: 1.02 }}
-    className="group relative bg-[#1a1a1a40] backdrop-blur-sm rounded-lg p-3 border border-[#2e2e2e] hover:border-[#b520fe] hover:shadow-[0_0_15px_rgba(181,32,254,0.3)] transition-all duration-200"
+    className="group relative bg-[#1a1a1a40] backdrop-blur-sm rounded-lg p-3 border border-[#2e2e2e] hover:border-[#b520fe] hover:shadow-[0_0_15px_rgba(181,32,254,0.3)] transition-all duration-200 cursor-pointer"
   >
     <div className="flex flex-col items-center text-center">
       <div className="text-2xl">{icon}</div>
@@ -62,6 +62,12 @@ const ActivityTimeline = ({
                   className="w-full h-full relative group/bar cursor-pointer"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.2 }}
+                  onClick={() =>
+                    window.open(
+                      `https://github.com/osallak?tab=overview&from=${activity.date}&to=${activity.date}`,
+                      "_blank"
+                    )
+                  }
                 >
                   <div
                     className="w-full h-full rounded-[4px] bg-gradient-to-t from-[#2e2e2e] to-[#404040] border border-[#2e2e2e] group-hover/bar:border-[#b520fe] group-hover/bar:shadow-[0_0_15px_rgba(181,32,254,0.3)] transition-all duration-200"
@@ -126,8 +132,8 @@ export default function GitHubStats() {
   return (
     <section className="w-full">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl sm:text-3xl font-bold text-white">
-          GitHub Activity
+        <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#b520fe] to-[#e2a6f8] text-transparent bg-clip-text">
+          # GitHub Activity
         </h2>
       </div>
       <motion.div
@@ -207,7 +213,7 @@ export default function GitHubStats() {
               <div className="text-gray-400 text-xs sm:text-sm">
                 Top Languages
               </div>
-              <div className="bg-white/[0.03] backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/[0.05]">
+              <div className="bg-[#1a1a1a40] backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-[#2e2e2e] hover:border-white/10 transition-colors">
                 <div className="h-2 sm:h-3 bg-black/20 rounded-full overflow-hidden flex">
                   {stats.languages.map((lang) => (
                     <motion.div
@@ -219,12 +225,34 @@ export default function GitHubStats() {
                       className="h-full transition-all duration-300"
                     />
                   ))}
+                  {/* Add the "Other" category bar if total is less than 100% */}
+                  {stats.languages.reduce(
+                    (acc, lang) => acc + lang.percentage,
+                    0
+                  ) < 100 && (
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{
+                        width: `${
+                          100 -
+                          stats.languages.reduce(
+                            (acc, lang) => acc + lang.percentage,
+                            0
+                          )
+                        }%`,
+                      }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      style={{ backgroundColor: "#2e2e2e" }}
+                      className="h-full transition-all duration-300"
+                    />
+                  )}
                 </div>
                 <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3">
                   {stats.languages.map((lang) => (
-                    <div
+                    <motion.div
                       key={lang.name}
-                      className="flex items-center space-x-1.5 bg-white/[0.03] rounded-full px-2 sm:px-3 py-1 hover:bg-white/[0.05] transition-colors border border-white/[0.05]"
+                      whileHover={{ scale: 1.05 }}
+                      className="flex items-center space-x-1.5 bg-[#2e2e2e50] backdrop-blur-sm rounded-full px-2 sm:px-3 py-1 border border-[#2e2e2e] hover:border-[#b520fe] hover:shadow-[0_0_15px_rgba(181,32,254,0.3)] transition-all duration-200 cursor-pointer"
                     >
                       <div
                         className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full"
@@ -236,8 +264,36 @@ export default function GitHubStats() {
                       <span className="text-xs sm:text-sm text-gray-400">
                         {lang.percentage.toFixed(1)}%
                       </span>
-                    </div>
+                    </motion.div>
                   ))}
+                  {/* Add the "Other" category tag if total is less than 100% */}
+                  {stats.languages.reduce(
+                    (acc, lang) => acc + lang.percentage,
+                    0
+                  ) < 100 && (
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      className="flex items-center space-x-1.5 bg-[#2e2e2e50] backdrop-blur-sm rounded-full px-2 sm:px-3 py-1 border border-[#2e2e2e] hover:border-[#b520fe] hover:shadow-[0_0_15px_rgba(181,32,254,0.3)] transition-all duration-200 cursor-pointer"
+                    >
+                      <div
+                        className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full"
+                        style={{ backgroundColor: "#2e2e2e" }}
+                      />
+                      <span className="text-xs sm:text-sm text-white">
+                        Other
+                      </span>
+                      <span className="text-xs sm:text-sm text-gray-400">
+                        {(
+                          100 -
+                          stats.languages.reduce(
+                            (acc, lang) => acc + lang.percentage,
+                            0
+                          )
+                        ).toFixed(1)}
+                        %
+                      </span>
+                    </motion.div>
+                  )}
                 </div>
               </div>
             </div>

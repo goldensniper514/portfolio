@@ -2,8 +2,8 @@
 
 import { Icon } from "@iconify/react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -109,8 +109,6 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
   const [projects, setProjects] = useState<ProjectCardProps[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -136,27 +134,12 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex justify-center items-center min-h-[400px]">
-        <p className="text-red-500">{error}</p>
-      </div>
-    );
-  }
-
   return (
-    <div id="projects" className="pt-4" ref={ref}>
+    <section id="projects">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
         transition={{ duration: 0.5 }}
         className="flex items-center gap-4 sm:gap-12 mb-8"
       >
@@ -165,42 +148,57 @@ const Projects = () => {
         </h2>
         <motion.span
           initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="h-[2px] w-full bg-gradient-to-r from-[#2e2e2e] via-purple-500/20 to-[#2e2e2e] origin-left"
         />
       </motion.div>
 
-      <div className="flex flex-wrap gap-2 sm:gap-6 justify-center px-0 sm:px-0">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
-      </div>
+      <div className="pt-4">
+        {loading ? (
+          <div className="flex justify-center items-center min-h-[400px]">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
+          </div>
+        ) : error ? (
+          <div className="flex justify-center items-center min-h-[400px]">
+            <p className="text-red-500">{error}</p>
+          </div>
+        ) : (
+          <>
+            <div className="flex flex-wrap gap-2 sm:gap-6 justify-center px-0 sm:px-0">
+              {projects.map((project, index) => (
+                <ProjectCard key={index} {...project} />
+              ))}
+            </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
-        transition={{ duration: 0.5 }}
-        className="flex justify-center mt-12"
-      >
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          href="https://github.com/osallak"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center gap-2 bg-[#2e2e2e50] px-6 sm:px-8 py-3 sm:py-4 rounded-xl border border-[#2e2e2e] transition-all duration-200 hover:border-[#343434]"
-        >
-          <span className="text-lg sm:text-xl font-semibold">
-            See More Projects
-          </span>
-          <Icon
-            icon="bxl:github"
-            className="text-2xl transition-all duration-200 group-hover:translate-x-1"
-          />
-        </motion.a>
-      </motion.div>
-    </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.5 }}
+              className="flex justify-center mt-12"
+            >
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                href="https://github.com/osallak"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 bg-[#2e2e2e50] px-6 sm:px-8 py-3 sm:py-4 rounded-xl border border-[#2e2e2e] transition-all duration-200 hover:border-[#343434]"
+              >
+                <span className="text-lg sm:text-xl font-semibold">
+                  See More Projects
+                </span>
+                <Icon
+                  icon="bxl:github"
+                  className="text-2xl transition-all duration-200 group-hover:translate-x-1"
+                />
+              </motion.a>
+            </motion.div>
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 
