@@ -9,6 +9,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  /* Ensure content is contained */
   max-width: 100vw;
 }
 
@@ -18,6 +19,7 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Remove previous iOS fixes since we're using dvh now */
 @supports (-webkit-touch-callout: none) {
   body {
     position: relative;
@@ -25,6 +27,7 @@ body {
   }
 }
 
+/* Ensure the root element takes up full height on iOS */
 :root {
   height: -webkit-fill-available;
 }
