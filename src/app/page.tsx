@@ -7,6 +7,7 @@ import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import LoadingScreen from "@/components/LoadingScreen";
+import CodingStatus from "@/components/CodingStatus";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -26,6 +27,9 @@ export default function Home() {
         >
           <div className="w-full rounded-[16px] bg-black/60 shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-[#2e2e2e] px-4 sm:px-12 py-8">
             <About />
+            <div className="mt-12 mb-12">
+              <CodingStatus />
+            </div>
             <Projects />
           </div>
         </div>
