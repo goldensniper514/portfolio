@@ -162,7 +162,7 @@ export default function Banner() {
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
               <span>Passionate about</span>
-              <div className="w-[200px] sm:w-[220px] md:w-[280px] inline-flex items-center justify-start overflow-hidden">
+              <div className="w-[250px] sm:w-[280px] md:w-[320px] inline-flex items-center justify-start overflow-hidden">
                 <span className="bg-gradient-to-r from-[#8c1df3] via-[#f714d1] to-[#621aaf] text-transparent bg-clip-text bg-[length:500%] animate-gradient">
                   {typewriterText}
                 </span>

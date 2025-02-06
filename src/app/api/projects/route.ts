@@ -9,7 +9,7 @@ export async function GET() {
     const fileContent = await fs.readFile(dataFilePath, 'utf-8');
     const data = JSON.parse(fileContent);
     return NextResponse.json(data);
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to fetch projects' }, { status: 500 });
   }
 }
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     await fs.writeFile(dataFilePath, JSON.stringify(data, null, 2));
 
     return NextResponse.json({ message: 'Project added successfully' });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to add project' }, { status: 500 });
   }
 }
