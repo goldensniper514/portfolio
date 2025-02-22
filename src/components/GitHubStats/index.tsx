@@ -179,17 +179,17 @@ export default function GitHubStats() {
                 <div className="flex justify-between text-[10px] sm:text-xs text-gray-400 mb-2">
                   <span>
                     {format(
-                      new Date(
-                        stats.contributionsByDay[
-                          stats.contributionsByDay.length - 1
-                        ].date
-                      ),
+                      new Date(stats.contributionsByDay[0].date),
                       "MMM d, yyyy"
                     )}
                   </span>
                   <span>
                     {format(
-                      new Date(stats.contributionsByDay[0].date),
+                      new Date(
+                        stats.contributionsByDay[
+                          stats.contributionsByDay.length - 1
+                        ].date
+                      ),
                       "MMM d, yyyy"
                     )}
                   </span>
