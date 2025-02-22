@@ -20,6 +20,7 @@
     "@react-three/fiber": "^8.17.14",
     "@types/gsap": "^1.20.2",
     "@types/three": "^0.173.0",
+    "asynckit": "^0.4.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",

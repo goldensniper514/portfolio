@@ -42,9 +42,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ message: 'Project added successfully' });
   } catch {
-    return NextResponse.json(
-      { message: 'Failed to add project' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to add project' }, { status: 500 });
   }
 }
