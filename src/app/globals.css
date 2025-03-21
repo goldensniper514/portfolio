@@ -17,6 +17,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   /* Enable smooth scrolling */
   -webkit-overflow-scrolling: touch;
+  background-color: var(--background);
+  color: var(--text-primary);
 }
 
 /* Remove previous iOS fixes since we're using dvh now */
@@ -30,6 +32,20 @@ body {
 /* Ensure the root element takes up full height on iOS */
 :root {
   height: -webkit-fill-available;
+  /* Theme variables */
+  --background: #000000;
+  --dots: #585858;
+  --text-primary: #ffffff;
+  --text-secondary: #ababab;
+  --accent-primary-from: #8c1df3;
+  --accent-primary-to: #621aaf;
+  --accent-secondary-from: #8c1df3;
+  --accent-secondary-via: #f714d1;
+  --accent-secondary-to: #621aaf;
+  --border: #2e2e2e;
+  --glass-primary: rgba(255, 255, 255, 0.05);
+  --glass-secondary: rgba(26, 26, 26, 0.4);
+  --glass-tertiary: rgba(46, 46, 46, 0.5);
 }
 
 .glow {
@@ -39,8 +55,6 @@ body {
 @layer base {
   :root {
     --footer-height: 80px;
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
@@ -55,7 +69,6 @@ body {
     --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --chart-1: 12 76% 61%;
@@ -99,5 +112,50 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Dot pattern background */
+.bg-dots {
+  background-image: radial-gradient(circle, var(--dots) 1px, transparent 1px),
+    radial-gradient(circle, var(--dots) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-[var(--accent-primary-from)] to-[var(--accent-primary-to)] text-transparent bg-clip-text;
+}
+
+.gradient-text-secondary {
+  @apply bg-gradient-to-r from-[var(--accent-secondary-from)] via-[var(--accent-secondary-via)] to-[var(--accent-secondary-to)] text-transparent bg-clip-text;
+}
+
+/* Glass morphism */
+.glass-primary {
+  @apply backdrop-blur-sm border;
+  background-color: var(--glass-primary);
+  border-color: var(--border);
+}
+
+.glass-secondary {
+  @apply backdrop-blur-sm border;
+  background-color: var(--glass-secondary);
+  border-color: var(--border);
+}
+
+.glass-tertiary {
+  @apply backdrop-blur-sm border;
+  background-color: var(--glass-tertiary);
+  border-color: var(--border);
+}
+
+/* Animations */
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }

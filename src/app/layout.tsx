@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import CursorFollower from "@/components/CursorFollower";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -68,15 +69,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#000000]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <CursorFollower />
-        <ScrollProgress />
-        {children}
-        <Footer />
-        <Toaster richColors position="bottom-right" />
+        <ThemeProvider>
+          <CursorFollower />
+          <ScrollProgress />
+          {children}
+          <Footer />
+          <Toaster richColors position="bottom-right" />
+        </ThemeProvider>
       </body>
     </html>
   );
