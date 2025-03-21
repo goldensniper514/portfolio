@@ -5,40 +5,60 @@ import { useEffect, useState } from "react";
 const CursorFollower = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
 
   useEffect(() => {
-    const updatePosition = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
-    };
+    // Delay initialization to avoid interfering with initial interactions
+    const initTimer = setTimeout(() => {
+      setIsEnabled(true);
+    }, 1000);
 
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const isClickable = Boolean(
-        target.tagName === "BUTTON" ||
-          target.tagName === "A" ||
-          target.closest("button") ||
-          target.closest("a") ||
-          target.getAttribute("role") === "button" ||
-          window.getComputedStyle(target).cursor === "pointer"
-      );
+    // Only set up event listeners once the component is enabled
+    let updatePosition: ((e: MouseEvent) => void) | null = null;
+    let handleMouseOver: ((e: MouseEvent) => void) | null = null;
+    let handleMouseOut: (() => void) | null = null;
 
-      setIsHovering(isClickable);
-    };
+    if (isEnabled) {
+      updatePosition = (e: MouseEvent) => {
+        setPosition({ x: e.clientX, y: e.clientY });
+      };
 
-    const handleMouseOut = () => {
-      setIsHovering(false);
-    };
+      handleMouseOver = (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        const isClickable = Boolean(
+          target.tagName === "BUTTON" ||
+            target.tagName === "A" ||
+            target.closest("button") ||
+            target.closest("a") ||
+            target.getAttribute("role") === "button" ||
+            window.getComputedStyle(target).cursor === "pointer"
+        );
 
-    window.addEventListener("mousemove", updatePosition);
-    window.addEventListener("mouseover", handleMouseOver);
-    window.addEventListener("mouseout", handleMouseOut);
+        setIsHovering(isClickable);
+      };
+
+      handleMouseOut = () => {
+        setIsHovering(false);
+      };
+
+      window.addEventListener("mousemove", updatePosition);
+      window.addEventListener("mouseover", handleMouseOver);
+      window.addEventListener("mouseout", handleMouseOut);
+    }
 
     return () => {
-      window.removeEventListener("mousemove", updatePosition);
-      window.removeEventListener("mouseover", handleMouseOver);
-      window.removeEventListener("mouseout", handleMouseOut);
+      clearTimeout(initTimer);
+      if (updatePosition)
+        window.removeEventListener("mousemove", updatePosition);
+      if (handleMouseOver)
+        window.removeEventListener("mouseover", handleMouseOver);
+      if (handleMouseOut)
+        window.removeEventListener("mouseout", handleMouseOut);
     };
-  }, []);
+  }, [isEnabled]);
+
+  // Don't render the cursor follower until it's enabled
+  if (!isEnabled) return null;
 
   return (
     <>
