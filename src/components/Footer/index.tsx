@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaXTwitter, FaTelegram } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="flex justify-center space-x-8">
           <Link
-            href="https://github.com/osallak"
+            href="https://github.com/goldensniper514"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"
@@ -15,24 +15,24 @@ const Footer = () => {
             <FaGithub className="w-6 h-6" />
           </Link>
           <Link
-            href="https://linkedin.com/in/osallak"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white transition-colors"
-          >
-            <FaLinkedin className="w-6 h-6" />
-          </Link>
-          <Link
-            href="https://twitter.com/uss4ma"
+            href="https://x.com/goldensniper514"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"
           >
             <FaXTwitter className="w-6 h-6" />
           </Link>
+          <Link
+            href="https://t.me/goldensniper0514"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors"
+          >
+            <FaTelegram className="w-6 h-6" />
+          </Link>         
         </div>
         <p className="text-center text-sm text-gray-400 mt-4">
-          © {new Date().getFullYear()} Oussama Sallak. All rights reserved.
+          © {new Date().getFullYear()} Logan Fujikawa. All rights reserved.
         </p>
       </div>
     </footer>

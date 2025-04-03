@@ -8,13 +8,14 @@ import { useRef } from "react";
 export default function Banner() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false });
-  const occupation = "Software Engineer & Full Stack Developer";
+  const occupation = "Fullstack developer and Blockchain software engineer";
 
   const [typewriterText] = useTypewriter({
     words: [
       "Technology",
       "Programming",
       "Development",
+      "Smart Contract",
       "AI",
       "Innovation",
       "Problem Solving",
@@ -152,7 +153,7 @@ export default function Banner() {
           >
             Hi, I&apos;m{" "}
             <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-              Oussama!
+              Logan!
             </span>
           </motion.h1>
 

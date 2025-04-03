@@ -5,25 +5,39 @@ import { motion } from "framer-motion";
 
 const educationData = [
   {
-    title: "2021 - Present",
-    cardTitle: "Software Engineering",
-    cardSubtitle: "1337 School (42 Network) - Programming School",
+    title: "01/2024  - Present",
+    cardTitle: " Senior Frontend Developer",
+    cardSubtitle: "Adrestus LTD",
     cardDetailedText:
-      "An intensive project-based curriculum focused on software engineering, algorithms, and system programming. Part of the prestigious 42 Network known for its peer-to-peer learning methodology.",
+      "Led the Adrestus website development with 3D effects using Three.js, a dynamic front end with React, and a modern UI with Tailwind CSS. Converted Java security functions to JavaScript for better client-side security.",
   },
   {
-    title: "2018 - 2021",
-    cardTitle: "Economics and Management",
-    cardSubtitle: "Faculty of Economics and Management - University Hassan I",
+    title: "10/2023 - 12/2023",
+    cardTitle: "Senior Full Stack Engineer",
+    cardSubtitle: "MC² Finance",
     cardDetailedText:
-      "Studied economics and management with focus on data analysis and business systems, developing analytical skills that complement software engineering.",
+      "Built a Vue.js web app with reusable components, a Rust backend, and a PostgreSQL database. Added blockchain transaction tracking, real-time updates, and Cypress testing for reliability.",
   },
   {
-    title: "2018",
-    cardTitle: "High School Diploma",
-    cardSubtitle: "Economics and Management",
+    title: " 06/2021 - 09/2023 ",
+    cardTitle: " Senior Software Engineer",
+    cardSubtitle: "Soteria Smart Contracts Inc",
     cardDetailedText:
-      "Completed secondary education with focus on scientific subjects including mathematics, economics, and management.",
+      "Built and deployed Ethereum smart contracts, integrated DApps, and designed responsive UIs with React. Ensured secure transactions with MetaMask and optimized performance with Redux. Collaborated with teams to deliver user-focused features.",
+  },
+  {
+    title: "06/2018 - 05/2021 ",
+    cardTitle: " Senior Software Engineer",
+    cardSubtitle: "NewKnow",
+    cardDetailedText:
+      "Developed blockchain solutions for supply chain and DeFi, reducing tracking errors by 50% and supporting over 3,000 users. Built secure smart contracts and decentralized apps on Ethereum and BSC for enterprise clients.",
+  },
+  {
+    title: "11/2014 - 05/2018 ",
+    cardTitle: "Queen's University",
+    cardSubtitle: "BachelorofScience - BS",
+    cardDetailedText:
+      "",
   },
 ];
 
