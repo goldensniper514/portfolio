@@ -8,7 +8,7 @@ import { useRef } from "react";
 export default function Banner() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false });
-  const occupation = "Software Engineer & Full Stack Developer";
+  const occupation = "Fullstack developer and Blockchain software engineer";
 
   const [typewriterText] = useTypewriter({
     words: [
