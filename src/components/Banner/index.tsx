@@ -15,6 +15,7 @@ export default function Banner() {
       "Technology",
       "Programming",
       "Development",
+      "Smart Contract",
       "AI",
       "Innovation",
       "Problem Solving",
@@ -152,7 +153,7 @@ export default function Banner() {
           >
             Hi, I&apos;m{" "}
             <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-              Oussama!
+              Logan!
             </span>
           </motion.h1>
 

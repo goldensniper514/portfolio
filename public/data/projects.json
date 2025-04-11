@@ -4,15 +4,15 @@
       "title": "Portfolio Website",
       "image": "portfolio.jpeg",
       "desc": "A personal portfolio website built with Next.js and TailwindCSS to showcase my projects, qualifications, and skills. Features a modern design with smooth animations and responsive layout.",
-      "repo": "https://github.com/osallak/portfolio",
-      "link": "https://osallak.tech",
+      "repo": "https://github.com/goldensniper514/portfolio",
+      "link": "https://goldensniper514.tech",
       "technologies": ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"]
     },
     {
       "title": "Spotify Profile Stats & Dashboard",
       "image": "spotify.png",
       "desc": "A Spotify profile stats and dashboard built with Next.js and TailwindCSS. It allows you to see your Spotify profile stats and dashboard.",
-      "repo": "https://github.com/osallak/spotify-wrapped",
+      "repo": "https://github.com/goldensniper514/spotify-wrapped",
       "link": "https://spotify-wrapped-xi.vercel.app/",
       "technologies": ["Next.js", "TypeScript", "TailwindCSS", "Spotify API"]
     },
@@ -20,7 +20,7 @@
       "title": "Wordle Clone",
       "image": "wordle.png",
       "desc": "A Wordle clone built with React. It allows you to play the game and see your stats.",
-      "repo": "https://github.com/osallak/wordle-clone",
+      "repo": "https://github.com/goldensniper514/wordle-clone",
       "link": "https://react-wordle-orcin.vercel.app/",
       "technologies": ["React", "JavaScript", "CSS"]
     },
@@ -28,7 +28,7 @@
       "title": "Streamix",
       "image": "streamix.png",
       "desc": "A movie streaming platform built with Next.js and TailwindCSS. It allows you to stream movies and TV shows ",
-      "repo": "https://github.com/osallak/streamix",
+      "repo": "https://github.com/goldensniper514/streamix",
       "technologies": [
         "Next.js",
         "TypeScript",
@@ -41,7 +41,7 @@
       "title": "Multiplayer Pong Game",
       "image": "pong.png",
       "desc": "A multiplayer pong game built with React and Socket.io. It allows you to play the game, chat, and see your stats with your friends.",
-      "repo": "https://github.com/osallak/SpinShot",
+      "repo": "https://github.com/goldensniper514/SpinShot",
       "technologies": [
         "Next.js",
         "Socket.io",
@@ -56,7 +56,7 @@
       "title": "System Administration Project",
       "image": "inception.png",
       "desc": "A containerized web infrastructure project featuring WordPress, NGINX, and MariaDB. Built with Docker for seamless deployment, featuring TLS encryption, automated container orchestration, and persistent data storage.",
-      "repo": "https://github.com/osallak/inception",
+      "repo": "https://github.com/goldensniper514/inception",
       "technologies": [
         "Docker",
         "NGINX",

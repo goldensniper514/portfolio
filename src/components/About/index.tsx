@@ -56,19 +56,22 @@ const About = () => {
             className="flex-1 space-y-3 sm:space-y-6 px-2 sm:px-0"
           >
             <p className="text-[15px] sm:text-lg lg:text-xl text-[#ababab] leading-relaxed">
-              Fullstack developer with 4 years of coding experience through
-              freelancing, personal projects, and continuous learning. Nearly 1
-              year of professional experience at a fintech company. Skilled in
-              Next.js/React, TypeScript, Node.js, NestJS, and AWS. Passionate
-              about creating efficient, user-friendly applications. Proficient
-              in C/C++ and JavaScript.
+              Enterprise Blockchain & Agile Development Leader
             </p>
             <p className="text-[15px] sm:text-lg lg:text-xl text-[#ababab] leading-relaxed">
-              Currently, I&apos;m focused on expanding my expertise in cloud
-              technologies and microservices architecture while staying
-              up-to-date with the latest industry trends. I&apos;m always eager
-              to take on new challenges and contribute to meaningful projects
-              that push the boundaries of what&apos;s possible in tech.
+              With over five years of experience in software development, I&apos;ve successfully architected and led the development of enterprise-level applications, managing teams of up to five developers. Over the past two years, I&apos;ve been fully dedicated to decentralized application (DApp) development, collaborating with cross-functional teams to drive innovation in the blockchain space.
+            </p>
+            <p className="text-[15px] sm:text-lg lg:text-xl text-[#ababab] leading-relaxed">
+              I&apos;ve deployed more than 10 decentralized applications across multiple blockchain ecosystems, including Ethereum, Binance Smart Chain, Polygon, EOSIO, Solana, CosmWasm, and TON. These applications have collectively attracted over 2,000 daily active users, spanning various industries.
+            </p>
+            <p className="text-[15px] sm:text-lg lg:text-xl text-[#ababab] leading-relaxed">
+              Beyond development, I&apos;ve played a key role as an Agile coach, helping organizations adopt Agile methodologies. I&apos;ve successfully coached and mentored teams of up to 50 members across four organizations, fostering a culture of efficiency, collaboration, and continuous improvement. Additionally, I&apos;ve facilitated Agile workshops for over 200 participants, achieving an outstanding average satisfaction rate of 95%.
+            </p>
+            <p className="text-[15px] sm:text-lg lg:text-xl text-[#ababab] leading-relaxed">
+              With a strong eye for design, I&apos;m also proficient in figma, creating visually compelling and user-friendly digital interfaces that enhance the user experience.
+            </p>
+            <p className="text-[15px] sm:text-lg lg:text-xl text-[#ababab] leading-relaxed">
+              I&apos;m passionate about building scalable, innovative blockchain solutions and empowering teams to achieve their full potential through Agile best practices.
             </p>
           </motion.div>
 
