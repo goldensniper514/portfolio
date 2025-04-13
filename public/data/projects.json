@@ -11,24 +11,25 @@
     {
       "title": "3D miniapp game",
       "image": "carwar miniapp.png",
-      "desc": "A Spotify profile stats and dashboard built with Next.js and TailwindCSS. It allows you to see your Spotify profile stats and dashboard.",
-      "repo": "https://github.com/goldensniper514/",
+      "desc": "A Carwar miniapp built with Next.js, TailwindCSS and Blender. This project is currently in development. You can see the growth of our project",
+      "repo": "https://github.com/goldensniper514/Carwar_miniapp",
       "link": "https://t.me/car_mini_bot/",
-      "technologies": ["Next.js", "TypeScript", "TailwindCSS", "Spotify API"]
+      "technologies": ["React.js", "TypeScript", "TailwindCSS", "Python", "Blender", "Three.js"]
     },
     {
-      "title": "Wordle Clone",
-      "image": "wordle.png",
-      "desc": "A Wordle clone built with React. It allows you to play the game and see your stats.",
-      "repo": "https://github.com/goldensniper514/wordle-clone",
-      "link": "https://react-wordle-orcin.vercel.app/",
-      "technologies": ["React", "JavaScript", "CSS"]
+      "title": "Flappy Bee Dapp",
+      "image": "FlappyBee.png",
+      "desc": "​A Flappy Bee DApp, is a decentralized application (Dapp) that combines classic arcade style gameplay with blockchain technology.",
+      "repo": "https://github.com/goldensniper514/FlappyBee_Dapp",
+      "link": "https://flappy-bee-dapp.vercel.app/",
+      "technologies": ["React", "JavaScript", "CSS", "Solidity"]
     },
     {
       "title": "Streamix",
       "image": "streamix.png",
       "desc": "A movie streaming platform built with Next.js and TailwindCSS. It allows you to stream movies and TV shows ",
       "repo": "https://github.com/goldensniper514/streamix",
+      "link": "https://flappy-bee-dapp.vercel.app/",
       "technologies": [
         "Next.js",
         "TypeScript",
@@ -53,7 +54,7 @@
       ]
     },
     {
-      "title": "System Administration Project",
+      "title": "",
       "image": "inception.png",
       "desc": "A containerized web infrastructure project featuring WordPress, NGINX, and MariaDB. Built with Docker for seamless deployment, featuring TLS encryption, automated container orchestration, and persistent data storage.",
       "repo": "https://github.com/goldensniper514/inception",
