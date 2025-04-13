@@ -46,7 +46,7 @@ const Header = () => {
             }}
             className="text-2xl font-bold bg-gradient-to-r from-[#8c1df3] to-[#621aaf] text-transparent bg-clip-text"
           >
-            OS
+            LF
           </motion.div>
 
           {/* Desktop Navigation */}

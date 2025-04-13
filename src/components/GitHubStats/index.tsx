@@ -103,7 +103,7 @@ const ContributionHeatmap = ({
                 }}
                 onClick={() =>
                   window.open(
-                    `https://github.com/osallak?tab=overview&from=${activity.date}&to=${activity.date}`,
+                    `https://github.com/goldensniper514?tab=overview&from=${activity.date}&to=${activity.date}`,
                     "_blank"
                   )
                 }

@@ -18,18 +18,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Oussama Sallak | Portfolio",
+  title: "Logan Fujikawa | Portfolio",
   description:
-    "Welcome to Oussama Sallak's portfolio - Full Stack Developer passionate about creating innovative web solutions",
-  authors: [{ name: "Oussama Sallak" }],
+    "Welcome to Logan Fujikawa's portfolio - Full Stack Developer passionate about creating innovative web solutions",
+  authors: [{ name: "Logan Fujikawa" }],
   keywords: [
-    "Oussama Sallak",
+    "Logan Fujikawa",
     "Portfolio",
     "Full Stack Developer",
     "Web Development",
     "Software Engineer",
   ],
-  creator: "Oussama Sallak",
+  creator: "Logan Fujikawa",
   icons: {
     icon: [
       {
@@ -49,17 +49,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "Oussama Sallak | Portfolio",
+    title: "Logan Fujikawa | Portfolio",
     description:
-      "Welcome to Oussama Sallak's portfolio - Full Stack Developer passionate about creating innovative web solutions",
-    siteName: "Oussama Sallak Portfolio",
+      "Welcome to Logan Fujikawa's portfolio - Full Stack Developer passionate about creating innovative web solutions",
+    siteName: "Logan Fujikawa Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oussama Sallak | Portfolio",
+    title: "Logan Fujikawa | Portfolio",
     description:
-      "Welcome to Oussama Sallak's portfolio - Full Stack Developer passionate about creating innovative web solutions",
-    creator: "@OussamaSallak",
+      "Welcome to Logan Fujikawa's portfolio - Full Stack Developer passionate about creating innovative web solutions",
+    creator: "@LoganFujikawa",
   },
 };
 
