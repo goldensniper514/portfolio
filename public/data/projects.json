@@ -29,7 +29,7 @@
       "image": "streamix.png",
       "desc": "A movie streaming platform built with Next.js and TailwindCSS. It allows you to stream movies and TV shows ",
       "repo": "https://github.com/goldensniper514/streamix",
-      "link": "https://flappy-bee-dapp.vercel.app/",
+      // "link": "https://flappy-bee-dapp.vercel.app/",
       "technologies": [
         "Next.js",
         "TypeScript",
