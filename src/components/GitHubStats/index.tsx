@@ -225,7 +225,7 @@ const LanguageChart = ({
               className="transition-all cursor-pointer"
               onClick={() =>
                 window.open(
-                  `https://github.com/osallak?tab=repositories&language=${segment.language.name}`,
+                  `https://github.com/goldensniper514?tab=repositories&language=${segment.language.name}`,
                   "_blank"
                 )
               }

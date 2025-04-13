@@ -9,11 +9,11 @@
       "technologies": ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"]
     },
     {
-      "title": "Spotify Profile Stats & Dashboard",
-      "image": "spotify.png",
+      "title": "3D miniapp game",
+      "image": "carwar miniapp.png",
       "desc": "A Spotify profile stats and dashboard built with Next.js and TailwindCSS. It allows you to see your Spotify profile stats and dashboard.",
-      "repo": "https://github.com/goldensniper514/spotify-wrapped",
-      "link": "https://spotify-wrapped-xi.vercel.app/",
+      "repo": "https://github.com/goldensniper514/",
+      "link": "https://t.me/car_mini_bot/",
       "technologies": ["Next.js", "TypeScript", "TailwindCSS", "Spotify API"]
     },
     {
