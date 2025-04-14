@@ -13,7 +13,7 @@ const Header = () => {
     { label: "Home", to: "home" },
     { label: "About", to: "about" },
     { label: "Projects", to: "projects" },
-    { label: "Education", to: "education" },
+    { label: "Personal history", to: "education" },
     { label: "Contact", to: "contact" },
   ];
 
