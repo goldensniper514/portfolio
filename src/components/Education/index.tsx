@@ -162,7 +162,7 @@ const Education = () => {
             className="flex items-center gap-2 sm:gap-12 px-2 sm:px-0 mb-8"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black whitespace-nowrap bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">
-              &lt;Education/&gt;
+              &lt;Personal history/&gt;
             </h2>
             <span className="h-[2px] w-full bg-gradient-to-r from-[#2e2e2e] via-purple-500/20 to-[#2e2e2e]" />
           </motion.div>

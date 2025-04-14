@@ -14,7 +14,7 @@ export default function Banner() {
     words: [
       "Technology",
       "Programming",
-      "Development",
+      "Fullstack",
       "Smart Contract",
       "AI",
       "Innovation",
