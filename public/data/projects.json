@@ -5,8 +5,13 @@
       "image": "portfolio.jpeg",
       "desc": "A personal portfolio website built with Next.js and TailwindCSS to showcase my projects, qualifications, and skills. Features a modern design with smooth animations and responsive layout.",
       "repo": "https://github.com/goldensniper514/portfolio",
-      "link": "https://goldensniper514.tech",
-      "technologies": ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"]
+      "link": "https://loganfujikawa.vercel.app",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "TailwindCSS",
+        "Framer Motion"
+      ]
     },
     {
       "title": "3D miniapp game",
@@ -14,7 +19,14 @@
       "desc": "A Carwar miniapp built with Next.js, TailwindCSS and Blender. This project is currently in development. You can see the growth of our project",
       "repo": "https://github.com/goldensniper514/Carwar_miniapp",
       "link": "https://t.me/car_mini_bot/",
-      "technologies": ["React.js", "TypeScript", "TailwindCSS", "Python", "Blender", "Three.js"]
+      "technologies": [
+        "React.js",
+        "TypeScript",
+        "TailwindCSS",
+        "Python",
+        "Blender",
+        "Three.js"
+      ]
     },
     {
       "title": "Flappy Bee Dapp",
@@ -22,7 +34,12 @@
       "desc": "​A Flappy Bee DApp, is a decentralized application (Dapp) that combines classic arcade style gameplay with blockchain technology.",
       "repo": "https://github.com/goldensniper514/FlappyBee_Dapp",
       "link": "https://flappy-bee-dapp.vercel.app/",
-      "technologies": ["React", "JavaScript", "CSS", "Solidity"]
+      "technologies": [
+        "React",
+        "JavaScript",
+        "CSS",
+        "Solidity"
+      ]
     },
     {
       "title": "Streamix",
@@ -38,22 +55,7 @@
       ]
     },
     {
-      "title": "Multiplayer Pong Game",
-      "image": "pong.png",
-      "desc": "A multiplayer pong game built with React and Socket.io. It allows you to play the game, chat, and see your stats with your friends.",
-      "repo": "https://github.com/goldensniper514/SpinShot",
-      "technologies": [
-        "Next.js",
-        "Socket.io",
-        "TailwindCSS",
-        "Nest.js",
-        "PostgreSQL",
-        "REST API",
-        "Docker"
-      ]
-    },
-    {
-      "title": "",
+      "title": "inception",
       "image": "inception.png",
       "desc": "A containerized web infrastructure project featuring WordPress, NGINX, and MariaDB. Built with Docker for seamless deployment, featuring TLS encryption, automated container orchestration, and persistent data storage.",
       "repo": "https://github.com/goldensniper514/inception",
@@ -65,6 +67,17 @@
         "PHP-FPM",
         "Shell Script",
         "TLS 1.2/1.3"
+      ]
+    },
+    {
+      "title": "Q3faucet bot",
+      "image": "Q3faucet.png",
+      "desc": "This bot is designed to help users easily receive test tokens for the O3 Layer blockchain network. These tokens can be used to explore and interact with the platform without the need for real funds.",
+      "repo": "https://github.com/goldensniper514/O3Layerfaucet_bot",
+      "link": "https://t.me/O3_Layer_faucet_bot",
+      "technologies": [
+        "node.js",
+        "REST API"
       ]
     }
   ]
