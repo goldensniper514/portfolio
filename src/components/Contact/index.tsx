@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-// import { toast } from "sonner";
+import { toast } from "sonner";
 import { motion } from "framer-motion";
 
 function Contact() {
@@ -93,34 +93,34 @@ function Contact() {
       return;
     }
 
-    // const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    // const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 
-    // if (!serviceId || !templateId) {
-    //   toast.error("Email service configuration is missing");
-    //   return;
-    // }
+    if (!serviceId || !templateId) {
+      toast.error("Email service configuration is missing");
+      return;
+    }
 
-    // toast.promise(
-    //   emailjs.send(serviceId, templateId, {
-    //     from_name: name,
-    //     from_email: email,
-    //     to_name: process.env.NEXT_PUBLIC_TO_NAME || "User",
-    //     message: message,
-    //   }),
-    //   {
-    //     loading: "Sending message...",
-    //     success: () => {
-    //       setName("");
-    //       setEmail("");
-    //       setMessage("");
-    //       setTouched({ name: false, email: false, message: false });
-    //       setErrors({ name: "", email: "", message: "" });
-    //       return "Message sent successfully!";
-    //     },
-    //     error: "Failed to send message",
-    //   }
-    // );
+    toast.promise(
+      emailjs.send(serviceId, templateId, {
+        from_name: name,
+        from_email: email,
+        to_name: process.env.NEXT_PUBLIC_TO_NAME || "User",
+        message: message,
+      }),
+      {
+        loading: "Sending message...",
+        success: () => {
+          setName("");
+          setEmail("");
+          setMessage("");
+          setTouched({ name: false, email: false, message: false });
+          setErrors({ name: "", email: "", message: "" });
+          return "Message sent successfully!";
+        },
+        error: "Failed to send message",
+      }
+    );
   };
 
   return (
