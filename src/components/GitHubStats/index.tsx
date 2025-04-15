@@ -298,7 +298,7 @@ const LanguageChart = ({
             onMouseLeave={() => setActiveIndex(null)}
             onClick={() =>
               window.open(
-                `https://github.com/osallak?tab=repositories&language=${lang.name}`,
+                `https://github.com/goldensniper514?tab=repositories&language=${lang.name}`,
                 "_blank"
               )
             }
@@ -466,7 +466,6 @@ export default function GitHubStats() {
   const [stats, setStats] = useState<GitHubStatsType | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     const fetchStats = async () => {
       try {
@@ -518,7 +517,7 @@ export default function GitHubStats() {
 
         {!isLoading && !error && stats && (
           <motion.a
-            href={`https://github.com/osallak`}
+            href={`https://github.com/goldensniper514`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-gray-400 flex items-center hover:text-white transition-colors duration-200"
@@ -668,7 +667,7 @@ export default function GitHubStats() {
             className="flex justify-center mt-5 sm:mt-8"
           >
             <motion.a
-              href="https://github.com/osallak"
+              href="https://github.com/goldensniper514"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-tertiary group rounded-full border border-[#2e2e2e] px-5 sm:px-6 py-2.5 sm:py-3 flex items-center space-x-2 hover:border-[#b520fe] transition-all duration-300"
