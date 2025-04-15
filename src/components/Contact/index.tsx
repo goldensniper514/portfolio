@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 import { motion } from "framer-motion";
 
 function Contact() {
