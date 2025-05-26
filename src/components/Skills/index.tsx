@@ -51,7 +51,7 @@ const Skills = () => {
     { icon: "git", name: "Git" },
     { icon: "linux-dark", name: "Linux" },
     { icon: "solidity", name: "Solidity" },
-    { icon: "rust", name: "Rust" },
+    { icon: "rust", name: "Rust" },//upload the file
 
   ]);
 
