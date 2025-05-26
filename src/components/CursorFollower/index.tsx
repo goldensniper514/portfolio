@@ -45,7 +45,7 @@ const CursorFollower = () => {
       window.addEventListener("mouseover", handleMouseOver);
       window.addEventListener("mouseout", handleMouseOut);
     }
-
+            
     return () => {
       clearTimeout(initTimer);
       if (updatePosition)
