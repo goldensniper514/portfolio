@@ -36,6 +36,8 @@ const Skills = () => {
     { icon: "nextjs-dark", name: "Next.js" },
     { icon: "tailwindcss-dark", name: "Tailwind" },
     { icon: "nodejs-dark", name: "Node.js" },
+    { icon: "java", name: "Java" },    
+    { icon: "unity", name: "Unity" },
     { icon: "fastapi", name: "FastAPI" },
     { icon: "django", name: "Django" },
     { icon: "laravel", name: "Laravel" },
@@ -48,6 +50,9 @@ const Skills = () => {
     { icon: "github-dark", name: "GitHub" },
     { icon: "git", name: "Git" },
     { icon: "linux-dark", name: "Linux" },
+    { icon: "solidity", name: "Solidity" },
+    { icon: "rust", name: "Rust" },
+
   ]);
 
   React.useEffect(() => {
