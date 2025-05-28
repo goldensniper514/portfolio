@@ -74,7 +74,7 @@
       "image": "Q3faucet.png",
       "desc": "This bot is designed to help users easily receive test tokens for the O3 Layer blockchain network. These tokens can be used to explore and interact with the platform without the need for real funds.",
       "repo": "https://github.com/goldensniper514/O3Layerfaucet_bot",
-      "link": "https://t.me/O3_Layer_faucet_bot",
+      "link": "https://t.me/o3_autofaucet_bot",
       "technologies": [
         "node.js",
         "REST API"
