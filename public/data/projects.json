@@ -23,7 +23,7 @@
         "React.js",
         "TypeScript",
         "TailwindCSS",
-        "Python",
+        "unity",
         "Blender",
         "Three.js"
       ]
@@ -35,23 +35,25 @@
       "repo": "https://github.com/goldensniper514/FlappyBee_Dapp",
       "link": "https://flappy-bee-dapp.vercel.app/",
       "technologies": [
-        "React",
+        "React.js",
         "JavaScript",
         "CSS",
         "Solidity"
       ]
     },
     {
-      "title": "Streamix",
-      "image": "streamix.png",
-      "desc": "A movie streaming platform built with Next.js and TailwindCSS. It allows you to stream movies and TV shows. ",
-      "repo": "https://github.com/goldensniper514/streamix",
+      "title": "Flappyboss",
+      "image": "flappyboss.png",
+      "desc": "FlappyBoss is a browser-based game built with React and deployed on Vercel. It uses modern web technologies for smooth performance, fast loading, and cross-device compatibility.",
+      "repo": "https://github.com/goldensniper514/flappyboss",
+      "link": "https://flappyboss.vercel.app/",
       "technologies": [
-        "Next.js",
+        "Unity",
+        "C#",
+        "React.js",
         "TypeScript",
         "TailwindCSS",
-        "TMDB API",
-        "VIDSRC API"
+        "Solidity"
       ]
     },
     {
