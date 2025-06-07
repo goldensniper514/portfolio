@@ -13,12 +13,11 @@ export default function Banner() {
   const [typewriterText] = useTypewriter({
     words: [
       "Technology",
-      "Programming",
       "Fullstack",
       "Smart Contract",
       "AI",
-      "Innovation",
       "Problem Solving",
+      "Game developer",
     ],
     loop: true,
     typeSpeed: 80,
