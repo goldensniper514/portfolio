@@ -14,6 +14,33 @@
       ]
     },
     {
+      "title": "Quai network",
+      "image": "quai.png",
+      "desc": "The frontend was developed using React.js along with Next.js for server-side rendering and routing.I was in charge of front-end development.",
+      "repo": "https://github.com/goldensniper514/go-quai",
+      "link": "https://qu.ai/",
+      "technologies": [
+        "React.js",
+        "TypeScript",
+        "TailwindCSS",
+        "unity",
+        "Blender",
+        "Three.js"
+      ]
+    },
+    {
+      "title": "Cloud",
+      "image": "Cloud.png",
+      "desc": "The site features smooth scroll effects, responsive layout, and a visually immersive experience designed to engage users through strong visual storytelling.I was in charge of front-end development.",
+      "link": "https://cloud-castle-by-jaibs.netlify.app/",
+      "technologies": [
+        "React.js",
+        "TypeScript",
+        "TailwindCSS",
+        "Three.js"
+      ]
+    },
+    {
       "title": "3D miniapp game",
       "image": "carwar miniapp.png",
       "desc": "A Carwar miniapp built with Next.js, TailwindCSS and Blender. This project is currently in development. You can see the growth of our project",
