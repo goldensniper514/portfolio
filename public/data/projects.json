@@ -52,23 +52,26 @@
         "C#",
         "React.js",
         "TypeScript",
+        "Lootlocker",
         "TailwindCSS",
-        "Solidity"
+        "Solidity",
+        "Thirdweb"
       ]
     },
     {
-      "title": "inception",
-      "image": "inception.png",
-      "desc": "A containerized web infrastructure project featuring WordPress, NGINX, and MariaDB. Built with Docker for seamless deployment, featuring TLS encryption, automated container orchestration, and persistent data storage.",
-      "repo": "https://github.com/goldensniper514/inception",
+      "title": "Lovely swap",
+      "image": "lovelyswap.png",
+      "desc": "Lovely Swap is a decentralized exchange (DEX) where users can trade crypto tokens on networks like BNB Chain, Polygon, and Base. It’s part of the Lovely Finance ecosystem.",
+      "link": "https://swap.lovely.finance/",
+      "repo": "https://github.com/goldensniper514/Swap_Frontend_E1",
       "technologies": [
-        "Docker",
-        "NGINX",
-        "WordPress",
-        "MariaDB",
-        "PHP-FPM",
-        "Shell Script",
-        "TLS 1.2/1.3"
+        "React.js",
+        "Typescript",
+        "TailwindCSS",
+        "MongoDB",
+        "Solidity",
+        "ether.js",
+        "Golang"
       ]
     },
     {
